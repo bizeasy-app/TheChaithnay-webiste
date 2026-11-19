@@ -11,9 +11,7 @@ import { site } from '@/lib/site';
 const publicDir = path.join(process.cwd(), 'public');
 
 function font(weight: 500 | 800) {
-  return fs.readFileSync(
-    path.join(process.cwd(), 'node_modules/@fontsource/manrope/files', `manrope-latin-${weight}-normal.woff`),
-  );
+  return fs.readFileSync(path.join(process.cwd(), 'app/fonts', `manrope-${weight}.woff2`));
 }
 
 function Bindu({ size }: { size: number }) {
