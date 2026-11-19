@@ -1,0 +1,35 @@
+{
+  "name": "thechaithanya",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_DIST_DIR=.next-dev next dev",
+    "fetch": "tsx scripts/fetch-notion.ts",
+    "faq": "tsx scripts/build-faq-index.ts",
+    "feeds": "tsx scripts/generate-feeds.tsx",
+    "test": "tsx --test components/askme/matcher.test.ts lib/markdown.test.ts lib/slug.test.ts lib/readingTime.test.ts lib/images.test.ts workers/api/api.test.ts",
+    "build": "npm run fetch && npm run faq && npm run feeds && next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@notionhq/client": "^5.31.1",
+    "lenis": "^1.3.27",
+    "next": "^15.5.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@fontsource/manrope": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "satori": "^0.63.2",
+    "tailwindcss": "^3.4.18",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.165.0"
+  }
+}

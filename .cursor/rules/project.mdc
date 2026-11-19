@@ -1,0 +1,18 @@
+---
+description: The Chaithanya website rules
+alwaysApply: true
+---
+- Source of truth: BUILD-SPEC.md (section 0 "FINAL DECISIONS" overrides the rest). Visual truth: /design-reference/*.html. Brand files: /The-Chaithanya-Brand-Kit/.
+- Follow the spec exactly. If something is unclear or missing, ask me before guessing.
+- Next.js App Router, TypeScript strict, Tailwind. Static export only (output: 'export'). Server code lives only in workers/api (Cloudflare Worker).
+- Brand: colours, Manrope typography and motion from spec section 6 only. Saffron (#E8792B) is never used as text on Cloud (#F0EEE9). JetBrains Mono only for code blocks.
+- Use real brand kit files (logos, favicons) — copy them into public/, never edit the brand kit folder.
+- Never show product names or real projects anywhere. Products page stays generic "Coming soon".
+- "Ask me" is a rule-based FAQ matcher. Never call it AI. Never add an LLM or any paid API.
+- Forms save to Notion (Subscribers, Inbox) through workers/api. Notion API version 2025-09-03, data source endpoints.
+- No fake data: no invented stats, testimonials, dates or counts. Keep [PLACEHOLDER]s in lib/site.ts and content/faq.json.
+- Copy voice: simple words, short sentences, no hype words (insane, game-changer, secret, crazy).
+- Accessibility: semantic elements, labels, visible focus rings, 44px touch targets, prefers-reduced-motion.
+- Keep client components minimal ('use client' only when needed).
+- Never commit secrets or .env files. Update .env.example when adding variables.
+- After each phase: run `npm run build`, fix all errors and type errors, then summarise what changed and what I must do manually.

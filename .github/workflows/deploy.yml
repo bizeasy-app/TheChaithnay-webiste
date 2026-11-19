@@ -1,0 +1,87 @@
+name: Deploy
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_BLOG_DATA_SOURCE_ID: ${{ secrets.NOTION_BLOG_DATA_SOURCE_ID }}
+          NOTION_BLOG_DATABASE_ID: ${{ secrets.NOTION_BLOG_DATABASE_ID }}
+          NEXT_PUBLIC_SITE_URL: https://thechaithanya.com
+
+      - name: Hash published content
+        id: content
+        run: |
+          set -euo pipefail
+          hash=$(find content public/blog-images -type f ! -name '.gitkeep' -print0 | sort -z | xargs -0 sha256sum | sha256sum | awk '{print $1}')
+          echo "hash=$hash" >> "$GITHUB_OUTPUT"
+          mkdir -p .deploy
+          printf '%s\n' "$hash" > .deploy/hash
+
+      - name: Restore last deployed hash
+        uses: actions/cache/restore@v4
+        with:
+          path: .deploy/last
+          key: deployed-content-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            deployed-content-${{ runner.os }}-
+
+      - name: Skip unchanged cron
+        id: gate
+        run: |
+          last=$(cat .deploy/last/hash 2>/dev/null || echo none)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$last" = "${{ steps.content.outputs.hash }}" ]; then
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Lighthouse
+        if: steps.gate.outputs.deploy == 'true' && github.event_name != 'schedule'
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: false
+
+      - name: Deploy
+        if: steps.gate.outputs.deploy == 'true'
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Remember deployed hash
+        if: steps.gate.outputs.deploy == 'true'
+        run: |
+          mkdir -p .deploy/last
+          cp .deploy/hash .deploy/last/hash
+
+      - name: Save deployed hash
+        if: steps.gate.outputs.deploy == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .deploy/last
+          key: deployed-content-${{ runner.os }}-${{ github.run_id }}

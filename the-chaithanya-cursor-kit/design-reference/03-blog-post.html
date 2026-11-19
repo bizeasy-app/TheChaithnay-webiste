@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Chaithanya — Blog post</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:#F0EEE9;color:#1A1714}
+a{color:#1A1714}a:hover{color:#6B625A}
+input::placeholder{color:#8A8178}
+.lift{transition:transform .25s ease, box-shadow .25s ease}
+.lift:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,23,20,.12)}
+@keyframes blink{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+.blink{animation:blink 1.2s steps(1) infinite}
+@media (prefers-reduced-motion: reduce){.blink{animation:none}.lift{transition:none}}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F0EEE9; font-family: 'Manrope', system-ui, sans-serif; color: #1A1714; overflow-x: hidden">
+
+  <div role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" style="position: sticky; top: 0; z-index: 20; height: 4px; background: rgba(26,23,20,0.08)"><div style="width: 35%; height: 4px; background: #E8792B"></div></div>
+
+  <header style="position: sticky; top: 16px; z-index: 10; max-width: 1240px; margin: 12px auto 0; padding: 0 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 20px; border-radius: 999px; background: rgba(240,238,233,0.82); backdrop-filter: blur(14px); border: 1px solid rgba(26,23,20,0.08)">
+      <a href="Main.dc.html" aria-label="The Chaithanya — home" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+        <svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><path d="M29.37 9.6 A14 14 0 1 0 29.37 30.4" fill="none" stroke="#1A1714" stroke-width="5" stroke-linecap="round"></path><circle cx="34" cy="20" r="4" fill="#E8792B"></circle></svg>
+        <span style="font-size: 18px; letter-spacing: -0.035em; line-height: 1"><span style="font-weight: 500; color: #6B625A">The </span><span style="font-weight: 700; color: #1A1714">Chaithanya</span></span>
+      </a>
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+        <a href="Blog.dc.html" aria-current="page" style="padding: 10px 16px; border-radius: 999px; background: #FFFFFF; font-size: 15px; font-weight: 800; text-decoration: none; color: #1A1714">Blog</a>
+        <a href="Products.dc.html" style="padding: 12px 14px; font-size: 15px; font-weight: 600; text-decoration: none; color: #4A433D">Products</a>
+        <a href="AskAI.dc.html" style="padding: 12px 14px; font-size: 15px; font-weight: 600; text-decoration: none; color: #4A433D">Ask me</a>
+        <a href="Contact.dc.html" style="padding: 12px 20px; border-radius: 999px; background: #1A1714; color: #F0EEE9; font-size: 15px; font-weight: 700; text-decoration: none">Join the log</a>
+      </nav>
+    </div>
+  </header>
+
+  <article>
+    <header style="max-width: 1240px; margin: 0 auto; padding: 72px 20px 0; display: flex; flex-direction: column; gap: 28px">
+      <nav aria-label="Breadcrumb" style="display: flex; gap: 8px; font-size: 14px; font-weight: 700; color: #6B625A"><a href="Blog.dc.html" style="color: #6B625A">Blog</a><span aria-hidden="true">/</span><span>AI tools &amp; building</span></nav>
+      <h1 style="margin: 0; max-width: 1050px; font-size: clamp(44px, 6.4vw, 96px); line-height: 0.96; font-weight: 800; letter-spacing: -0.05em">How I build apps with Claude Code as a <span style="color: #E8792B">solo founder</span><span class="blink" style="display: inline-block; width: 0.18em; height: 0.18em; margin-left: 0.04em; border-radius: 50%; background: #1A1714"></span></h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 48px; height: 48px; border-radius: 50%; background: #1A1714; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 40 40" aria-hidden="true"><path d="M29.37 9.6 A14 14 0 1 0 29.37 30.4" fill="none" stroke="#F0EEE9" stroke-width="5" stroke-linecap="round"></path><circle cx="34" cy="20" r="4" fill="#E8792B"></circle></svg></span>
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 800">Chaithanya</span><span style="font-size: 14px; font-weight: 600; color: #6B625A">[Date] · [X] min read · Founder log, week [X]</span></span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" style="display: flex; align-items: center; gap: 8px; padding: 12px 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #1A1714; background: transparent; color: #1A1714; font-size: 14px; font-weight: 800; font-family: inherit; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20"></polygon></svg>Listen</button>
+          <button type="button" style="display: flex; align-items: center; gap: 8px; padding: 12px 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #CFC9BF; background: transparent; color: #1A1714; font-size: 14px; font-weight: 800; font-family: inherit; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v14"></path></svg>Share</button>
+        </div>
+      </div>
+    </header>
+
+    <div style="max-width: 1240px; margin: 0 auto; padding: 48px 20px 0">
+      <div style="position: relative; aspect-ratio: 16 / 8; border-radius: 28px; background: #26305C; overflow: hidden; display: flex; align-items: center; justify-content: center; background-image: radial-gradient(rgba(240,238,233,0.12) 1.5px, transparent 1.5px); background-size: 22px 22px">
+        <svg width="480" height="480" viewBox="0 0 40 40" aria-hidden="true" style="position: absolute; right: -100px; bottom: -140px; opacity: 0.22"><path d="M29.37 9.6 A14 14 0 1 0 29.37 30.4" fill="none" stroke="#F0EEE9" stroke-width="5" stroke-linecap="round"></path><circle cx="34" cy="20" r="4" fill="#E8792B"></circle></svg>
+        <a href="https://youtube.com/@[HANDLE]" aria-label="Watch the video version" style="position: relative; width: 96px; height: 96px; border-radius: 50%; background: #F0EEE9; color: #1A1714; display: flex; align-items: center; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20"></polygon></svg></a>
+        <span style="position: absolute; left: 24px; bottom: 24px; padding: 8px 14px; border-radius: 999px; background: #1A1714; color: #F0EEE9; font-size: 14px; font-weight: 800">Watch the video version · [length]</span>
+      </div>
+    </div>
+
+    <div style="max-width: 1240px; margin: 0 auto; padding: 64px 20px 0; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+
+      <aside aria-label="On this page" style="flex: 1 1 240px; max-width: 280px; position: sticky; top: 112px; display: flex; flex-direction: column; gap: 20px">
+        <nav aria-label="Table of contents" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; font-weight: 700">
+          <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6B625A; padding-bottom: 8px">ON THIS PAGE</span>
+          <a href="#problem" style="padding: 10px 14px; border-radius: 12px; background: #1A1714; color: #F0EEE9; text-decoration: none">The problem</a>
+          <a href="#tried" style="padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #4A433D">What I tried</a>
+          <a href="#happened" style="padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #4A433D">What actually happened</a>
+          <a href="#steal" style="padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #4A433D">Steal this</a>
+        </nav>
+        <a href="AskAI.dc.html" class="lift" style="border-radius: 20px; background: #1A1714; color: #F0EEE9; text-decoration: none; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #B3A99E">ASK ABOUT THIS POST</span>
+          <span style="font-size: 17px; line-height: 1.3; font-weight: 800">Stuck on a step? Ask, and get an answer from this post.</span>
+          <span style="font-size: 14px; font-weight: 800; color: #E8792B">Start a chat →</span>
+        </a>
+      </aside>
+
+      <div style="flex: 999 1 560px; min-width: 0; max-width: 760px; display: flex; flex-direction: column; gap: 28px; font-size: 20px; line-height: 1.75; font-weight: 500; color: #2E2924">
+
+        <section aria-label="Summary" style="border-radius: 22px; background: #FFFFFF; border: 1px solid #E2DED6; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6B625A"><svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><path d="M29.37 9.6 A14 14 0 1 0 29.37 30.4" fill="none" stroke="#1A1714" stroke-width="5" stroke-linecap="round"></path><circle cx="34" cy="20" r="4" fill="#E8792B"></circle></svg>TL;DR IN 3 LINES</span>
+          <ul style="margin: 0; padding: 0 0 0 22px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; line-height: 1.55; color: #1A1714">
+            <li>[Key point 1 — the big idea in one line]</li>
+            <li>[Key point 2 — what surprised me]</li>
+            <li>[Key point 3 — what you should do this week]</li>
+          </ul>
+        </section>
+
+        <p style="margin: 0; font-size: 24px; line-height: 1.55; font-weight: 600; color: #1A1714">[Hook: open with the moment — one or two short sentences that make the reader feel the problem.]</p>
+
+        <h2 id="problem" style="margin: 24px 0 0; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; color: #1A1714">The problem</h2>
+        <p style="margin: 0">[Explain the problem like you'd tell a friend. Simple words, short sentences. Use a real number where you can — "built in 4 hours" beats "built fast".]</p>
+
+        <h2 id="tried" style="margin: 24px 0 0; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; color: #1A1714">What I tried</h2>
+        <p style="margin: 0">[Walk through the steps. Add a screenshot for each important one.]</p>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+          <div style="aspect-ratio: 16 / 9; border-radius: 18px; background: #E2DED6; border: 1px solid #CFC9BF; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #6B625A">[Screenshot — zoom into the part that matters]</div>
+          <figcaption style="font-size: 15px; line-height: 1.5; color: #6B625A">[Caption: what the reader should notice]</figcaption>
+        </figure>
+
+        <blockquote style="margin: 12px 0; padding: 4px 0 4px 28px; border-left: 4px solid #E8792B; font-size: 30px; line-height: 1.3; font-weight: 800; letter-spacing: -0.025em; color: #1A1714">[The one line people will screenshot and share.]</blockquote>
+
+        <h2 id="happened" style="margin: 24px 0 0; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; color: #1A1714">Here's what actually happened</h2>
+        <p style="margin: 0">[The honest result — the win and the failure. Show proof on screen, never fake numbers.]</p>
+
+        <section id="steal" aria-labelledby="steal-h" style="margin-top: 24px; border-radius: 24px; background: #1A1714; color: #F0EEE9; padding: 36px; display: flex; flex-direction: column; gap: 16px">
+          <h2 id="steal-h" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em">Steal this<span style="color: #E8792B">.</span></h2>
+          <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D9D2C9">[The exact prompt, template or checklist the reader can copy right now.]</p>
+          <div style="position: relative; border-radius: 16px; background: #2A2521; border: 1px solid #4A433D; padding: 22px 22px 22px 22px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.7; color: #F0EEE9; white-space: pre-wrap">[Paste your prompt or code here]</div>
+          <button type="button" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 12px 20px; min-height: 44px; border-radius: 999px; border: none; background: #E8792B; color: #1A1714; font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>Copy</button>
+        </section>
+
+        <div style="border-top: 1.5px solid #1A1714; padding-top: 28px; display: flex; flex-direction: column; gap: 14px">
+          <p style="margin: 0; font-size: 24px; line-height: 1.4; font-weight: 800; color: #1A1714">[Close with an open question for the reader.]</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DED6; font-size: 14px; font-weight: 700">Claude Code</span>
+            <span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DED6; font-size: 14px; font-weight: 700">Solo founder</span>
+            <span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DED6; font-size: 14px; font-weight: 700">AI tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section aria-labelledby="sub-h" style="max-width: 1240px; margin: 0 auto; padding: 112px 20px 0">
+    <div style="position: relative; overflow: hidden; border-radius: 36px; background: #E8792B; color: #1A1714; padding: 64px 56px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+      <h2 id="sub-h" style="margin: 0; flex: 1 1 420px; font-size: clamp(40px, 5.4vw, 76px); line-height: 0.95; font-weight: 800; letter-spacing: -0.05em">Liked this?<br>Get next week's.</h2>
+      <form style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <label for="post-email" style="font-size: 14px; font-weight: 800">Email address</label>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; padding: 8px; border-radius: 999px; background: #1A1714">
+          <input id="post-email" type="email" placeholder="you@example.com" style="flex: 1 1 200px; min-width: 0; padding: 12px 16px; border: none; background: transparent; color: #F0EEE9; font-size: 16px; font-family: inherit">
+          <button type="submit" style="padding: 14px 24px; border-radius: 999px; border: none; background: #F0EEE9; color: #1A1714; font-size: 16px; font-weight: 800; font-family: inherit; cursor: pointer">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section aria-labelledby="next-h" style="max-width: 1240px; margin: 0 auto; padding: 112px 20px 0">
+    <h2 id="next-h" style="margin: 0 0 24px; font-size: clamp(36px, 4.6vw, 64px); line-height: 0.95; font-weight: 800; letter-spacing: -0.05em">Read next</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+      <a href="Post.dc.html" class="lift" style="border-radius: 24px; background: #FFFFFF; border: 1px solid #E2DED6; padding: 28px; text-decoration: none; color: #1A1714; display: flex; flex-direction: column; gap: 12px; min-height: 200px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6B625A">STARTUP LESSONS</span>
+        <span style="font-size: 26px; line-height: 1.15; font-weight: 800; letter-spacing: -0.03em">Selling to small WhatsApp sellers in India: what I'm learning</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 800">Read →</span>
+      </a>
+      <a href="Post.dc.html" class="lift" style="border-radius: 24px; background: #FFFFFF; border: 1px solid #E2DED6; padding: 28px; text-decoration: none; color: #1A1714; display: flex; flex-direction: column; gap: 12px; min-height: 200px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6B625A">AI TOOLS &amp; BUILDING</span>
+        <span style="font-size: 26px; line-height: 1.15; font-weight: 800; letter-spacing: -0.03em">Steal this: my under-3-hours-a-week content system</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 800">Read →</span>
+      </a>
+      <a href="Post.dc.html" class="lift" style="border-radius: 24px; background: #FFFFFF; border: 1px solid #E2DED6; padding: 28px; text-decoration: none; color: #1A1714; display: flex; flex-direction: column; gap: 12px; min-height: 200px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6B625A">LIFE &amp; MINDSET</span>
+        <span style="font-size: 26px; line-height: 1.15; font-weight: 800; letter-spacing: -0.03em">Learning storytelling from zero as a founder</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 800">Read →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer style="max-width: 1240px; margin: 0 auto; padding: 96px 20px 40px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center">
+      <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700">
+        <a href="Main.dc.html">Home</a>
+        <a href="Blog.dc.html">Blog</a>
+        <a href="Products.dc.html">Products</a>
+        <a href="Contact.dc.html">Newsletter</a>
+        <a href="AskAI.dc.html">Ask me</a>
+      </nav>
+      <p style="margin: 0; font-size: 14px; color: #6B625A">© 2026 The Chaithanya · thechaithanya.com</p>
+    </div>
+    <p aria-hidden="true" style="margin: 0; font-size: clamp(64px, 15vw, 230px); line-height: 0.8; font-weight: 800; letter-spacing: -0.06em; color: #1A1714; white-space: nowrap">Chaithanya<span style="color: #E8792B">.</span></p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

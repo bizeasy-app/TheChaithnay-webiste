@@ -1,0 +1,4 @@
+# Copy to .dev.vars for `npx wrangler dev`. Never commit .dev.vars.
+NOTION_TOKEN=
+NOTION_SUBSCRIBERS_DATA_SOURCE_ID=
+NOTION_INBOX_DATA_SOURCE_ID=
