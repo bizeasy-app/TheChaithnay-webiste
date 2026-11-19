@@ -30,6 +30,8 @@ jobs:
           NOTION_BLOG_DATA_SOURCE_ID: ${{ secrets.NOTION_BLOG_DATA_SOURCE_ID }}
           NOTION_BLOG_DATABASE_ID: ${{ secrets.NOTION_BLOG_DATABASE_ID }}
           NEXT_PUBLIC_SITE_URL: https://thechaithanya.com
+          # Production must call same-origin /api/* — never bake a local Worker URL.
+          NEXT_PUBLIC_API_BASE: ""
 
       - name: Hash published content
         id: content

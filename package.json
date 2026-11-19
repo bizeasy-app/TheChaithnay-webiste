@@ -8,6 +8,7 @@
     "feeds": "tsx scripts/generate-feeds.tsx",
     "test": "tsx --test components/askme/matcher.test.ts lib/markdown.test.ts lib/slug.test.ts lib/readingTime.test.ts lib/images.test.ts workers/api/api.test.ts",
     "build": "npm run fetch && npm run faq && npm run feeds && next build",
+    "deploy": "NEXT_PUBLIC_API_BASE= NEXT_PUBLIC_SITE_URL=https://thechaithanya.com npm run build && npx wrangler deploy",
     "start": "next start"
   },
   "dependencies": {
