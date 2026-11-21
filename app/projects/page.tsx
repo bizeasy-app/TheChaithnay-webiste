@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Projects | The Chaithanya',
-  description: 'Products, experiments, case studies and technical demos — built in public, with what worked and what failed. First projects open here soon.',
+  description: 'Products and experiments built in public, with what worked and what failed. The first projects open here soon.',
   path: '/projects',
 });
 
@@ -20,8 +20,8 @@ export default function ProjectsPage() {
       <SplitPage
         nav={
           <StackNav current="projects">
-            <h1 className="m-0 inline text-[17px] font-medium">Projects</h1>: products, experiments, case studies and technical
-            demos — shown honestly, with what worked and what failed.
+            <h1 className="m-0 inline text-[17px] font-medium">Projects</h1>: what I&apos;m building, shown honestly, including what
+            failed.
           </StackNav>
         }
       >

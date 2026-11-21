@@ -1038,11 +1038,6 @@ html.cursor-text .cursor-ring {
 }
 
 /* The menu has its own #Ask me; hide the floating button while it is open. */
-html.menu-open .ask-fab {
-  opacity: 0;
-  pointer-events: none;
-}
-
 .menu-icon {
   position: relative;
   display: inline-block;
@@ -1353,179 +1348,6 @@ html.menu-open .ask-fab {
   }
 }
 
-/* ───────── Social dock ───────── */
-.social-dock {
-  --dock-in: clamp(0, calc(var(--p, 1) * 2.4 - var(--i, 0) * 0.24), 1);
-}
-
-.dock-go {
-  transition: transform 500ms var(--ease-spring), background-color 300ms ease;
-}
-
-.dock-go:hover {
-  transform: scale(1.06);
-}
-
-/* Arrow leaves to the right and comes back in from the left. */
-.dock-go:hover .dock-go-arrow,
-.dock-go:focus-visible .dock-go-arrow {
-  animation: dock-arrow 620ms var(--ease-out-expo);
-}
-
-@keyframes dock-arrow {
-  0% { transform: translateX(0); }
-  45% { transform: translateX(140%); opacity: 0; }
-  46% { transform: translateX(-140%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-.dock-icon {
-  opacity: var(--dock-in);
-  translate: 0 calc((1 - var(--dock-in)) * 16px);
-  transition: color 250ms ease, transform 450ms var(--ease-spring);
-}
-
-.dock-icon:hover,
-.dock-icon:focus-visible {
-  color: var(--saffron);
-  transform: translateY(-3px) rotate(-6deg);
-}
-
-.dock-tip {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 8px);
-  translate: -50% 6px;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--cloud);
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  transition: opacity 200ms ease, translate 300ms var(--ease-out-expo);
-}
-
-.dock-icon:hover .dock-tip,
-.dock-icon:focus-visible .dock-tip {
-  opacity: 1;
-  translate: -50% 0;
-}
-
-/* Rule under the pill: fills with page scroll. */
-.dock-rule {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: -1px;
-  height: 1.5px;
-  border-radius: 2px;
-  background: var(--ink);
-  opacity: 0.55;
-  transform-origin: left center;
-  scale: var(--scroll, 0) 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dock-icon {
-    opacity: 1;
-    translate: none;
-    animation: none;
-  }
-  .dock-go:hover .dock-go-arrow,
-  .dock-go:focus-visible .dock-go-arrow {
-    animation: none;
-  }
-}
-
-/* ───────── Floating social dock (bottom-left, always visible) ───────── */
-.float-dock {
-  transition: opacity 300ms ease, translate 500ms var(--ease-out-expo);
-}
-
-html.menu-open .float-dock {
-  opacity: 0;
-  translate: 0 12px;
-  pointer-events: none;
-}
-
-/* Icons tray: slides open/closed; icons stagger with --i. */
-.float-dock-tray {
-  display: grid;
-  grid-template-columns: 1fr;
-  transition: grid-template-columns 600ms var(--ease-out-expo), margin 600ms var(--ease-out-expo);
-}
-
-.float-dock[data-open='false'] .float-dock-tray {
-  grid-template-columns: 0fr;
-  margin-right: -12px;
-}
-
-.float-dock-tray > div {
-  overflow: hidden;
-}
-
-.float-dock .dock-icon {
-  opacity: 1;
-  translate: none;
-  transition: opacity 400ms ease, translate 600ms var(--ease-out-expo), color 250ms ease, transform 450ms var(--ease-spring);
-  transition-delay: calc(var(--i, 0) * 60ms), calc(var(--i, 0) * 60ms), 0ms, 0ms;
-}
-
-.float-dock[data-open='false'] .dock-icon {
-  opacity: 0;
-  translate: -18px 0;
-  transition-delay: 0ms;
-}
-
-/* First paint: icons rise in after the page intro. */
-.float-dock[data-ready='false'] .dock-icon {
-  opacity: 0;
-  translate: -18px 0;
-}
-
-/* Arrow points right in both states (as in the reference); a nudge on hover. */
-.float-dock-arrow {
-  transition: transform 600ms var(--ease-spring);
-}
-
-.float-dock button:hover .float-dock-arrow {
-  transform: translateX(3px);
-}
-
-.float-dock .dock-rule {
-  left: 34px;
-  right: 34px;
-}
-
-.float-dock[data-open='false'] .dock-rule {
-  opacity: 0;
-}
-
-/* Tooltips sit above the floating pill. */
-.float-dock .dock-tip {
-  bottom: calc(100% + 14px);
-}
-
-@media (max-width: 599px) {
-  html.dock-open .ask-fab {
-    opacity: 0;
-    translate: 0 12px;
-    pointer-events: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .float-dock-tray,
-  .float-dock .dock-icon,
-  .float-dock-arrow {
-    transition: none;
-  }
-}
-
 /* ───────── Magnetic buttons (Magnetic.tsx) ───────── */
 [data-magnetic] {
   transition-property: translate, transform, background-color, color, box-shadow, border-color, opacity;
@@ -1536,76 +1358,6 @@ html.menu-open .float-dock {
 [data-magnetic].is-magnet {
   transition-duration: 160ms, 300ms, 300ms, 300ms, 300ms, 300ms, 300ms;
   transition-timing-function: linear, var(--ease-out-expo), ease, ease, ease, ease, ease;
-}
-
-/* ───────── Tool-bar navbar ───────── */
-.nav-tool {
-  color: var(--muted);
-  transition: color 250ms ease, background-color 250ms ease;
-}
-
-.nav-tool:hover,
-.nav-tool:focus-visible {
-  color: var(--ink);
-  background: color-mix(in srgb, var(--ink) 7%, transparent);
-}
-
-.nav-tool.is-active {
-  color: var(--ink);
-}
-
-/* Active page: a saffron bindu under the icon. */
-.nav-tool.is-active::after {
-  content: '';
-  position: absolute;
-  bottom: 3px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  margin-left: -2px;
-  border-radius: 999px;
-  background: var(--saffron);
-}
-
-.nav-tool svg {
-  transition: transform 450ms var(--ease-spring);
-}
-
-.nav-tool:hover svg {
-  transform: translateY(-2px);
-}
-
-.nav-tip {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  translate: -50% -6px;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--cloud);
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  transition: opacity 200ms ease, translate 300ms var(--ease-out-expo);
-}
-
-.nav-tool:hover .nav-tip,
-.nav-tool:focus-visible .nav-tip {
-  opacity: 1;
-  translate: -50% 0;
-}
-
-/* Round mark: the bindu turns a quarter on hover. */
-.nav-mark svg {
-  transition: transform 700ms var(--ease-spring);
-}
-
-.nav-mark:hover svg {
-  transform: rotate(-90deg);
 }
 
 /* ───────── Split pages: stacked section type (StackNav) ───────── */
@@ -1839,165 +1591,886 @@ html.menu-open .float-dock {
   max-width: 34ch;
 }
 
-/* ───────── Four corners: nav, menu, social, ask ─────────
-   One pill style for every corner control, the same inset from each edge
-   (bottom corners line up with the header's page width), and a staggered
-   entrance where each pill slides in from its own corner. */
+/* ───────── Top bar: brand left, Subscribe + Menu right ─────────
+   Always in view on every screen size. */
 :root {
-  --corner-y: 16px;
-  --corner-x: max(20px, calc((100vw - 1240px) / 2 + 20px));
+  --bar-y: 16px;
 }
 
-@media (max-width: 480px) {
-  :root {
-    --corner-x: 16px;
-  }
+.site-header {
+  transition: translate 600ms var(--ease-out-expo), opacity 400ms ease;
 }
 
-.corner-pill {
+
+.bar-pill,
+.bar-brand {
+  border: 1px solid transparent;
+  transition:
+    background-color 400ms ease,
+    border-color 400ms ease,
+    box-shadow 400ms var(--ease-out-expo);
+}
+
+.bar-pill,
+html.is-scrolled .bar-brand {
   border-radius: 9999px;
-  border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-  background: color-mix(in srgb, var(--cloud) 82%, transparent);
+  border-color: color-mix(in srgb, var(--ink) 10%, transparent);
+  background: color-mix(in srgb, var(--cloud) 86%, transparent);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 8px 24px rgb(var(--shade) / 0.05);
-  transition:
-    box-shadow 400ms var(--ease-out-expo),
-    background-color 400ms ease,
-    border-color 400ms ease;
 }
 
-html.is-scrolled .corner-pill {
-  border-color: color-mix(in srgb, var(--ink) 14%, transparent);
-  background: color-mix(in srgb, var(--cloud) 92%, transparent);
-  box-shadow: 0 16px 40px rgb(var(--shade) / 0.12);
+html.is-scrolled .bar-brand {
+  padding: 5px 16px 5px 5px;
+  box-shadow: 0 12px 32px rgb(var(--shade) / 0.08);
 }
 
-.corner-bl,
-.corner-br {
-  position: fixed;
-  z-index: 40;
-  bottom: var(--corner-y);
+html.is-scrolled .bar-pill {
+  box-shadow: 0 12px 32px rgb(var(--shade) / 0.08);
 }
 
-.corner-bl {
-  left: var(--corner-x);
+.bar-mark {
+  border: 1px solid var(--line-strong);
 }
 
-.corner-br {
-  right: var(--corner-x);
+.bar-mark svg {
+  transition: rotate 700ms var(--ease-spring);
 }
 
-.corner {
-  animation: corner-in 1s var(--ease-out-expo) backwards;
-  animation-delay: calc(650ms + var(--corner-i, 0) * 90ms);
+.bar-brand:hover .bar-mark svg,
+.bar-brand:focus-visible .bar-mark svg {
+  rotate: 120deg;
 }
 
-.corner-tl { --cx: -16px; --cy: -16px; transform-origin: 0 0; }
-.corner-tr { --cx: 16px; --cy: -16px; transform-origin: 100% 0; }
-.corner-bl { --cx: -16px; --cy: 16px; transform-origin: 0 100%; }
-.corner-br { --cx: 16px; --cy: 16px; transform-origin: 100% 100%; }
+.bar-in {
+  animation: bar-in 900ms var(--ease-out-expo) 600ms backwards;
+}
 
-@keyframes corner-in {
+@keyframes bar-in {
   from {
     opacity: 0;
-    translate: var(--cx) var(--cy);
-    scale: 0.9;
-    filter: blur(6px);
+    translate: 0 -14px;
   }
 }
 
-/* Bottom-right: back-to-top slides out of the pill once you scroll. */
-.corner-top-slot,
-.corner-ask-slot {
-  display: grid;
-  grid-template-columns: 1fr;
-  transition: grid-template-columns 650ms var(--ease-out-expo);
+/* ───────── The island (bottom centre) ─────────
+   Always a dark drop of ink in both themes, saffron for the one action. */
+.island-wrap {
+  position: fixed;
+  z-index: 40;
+  left: 50%;
+  bottom: var(--bar-y);
+  translate: -50% 0;
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--bar-y));
+  animation: island-in 1100ms var(--ease-out-expo) 850ms backwards;
+  transition: opacity 300ms ease, translate 600ms var(--ease-out-expo);
 }
 
-.corner-top-slot > div,
-.corner-ask-slot > div {
+@keyframes island-in {
+  from {
+    opacity: 0;
+    translate: -50% 150%;
+    scale: 0.7;
+  }
+}
+
+html.ask-open .island-wrap,
+html.menu-open .island-wrap {
+  opacity: 0;
+  translate: -50% 150%;
+  pointer-events: none;
+}
+
+.island {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: 9999px;
+  background: var(--coal);
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+  box-shadow:
+    0 18px 50px rgb(0 0 0 / 0.28),
+    0 2px 6px rgb(0 0 0 / 0.18);
+  transition: padding 500ms var(--ease-out-expo), gap 500ms var(--ease-out-expo);
+}
+
+.island-slot {
+  display: grid;
+  flex-shrink: 0;
+  grid-template-columns: 1fr;
+  transition: grid-template-columns 600ms var(--ease-out-expo), opacity 300ms ease;
+}
+
+.island-slot > div {
   overflow: hidden;
   min-width: 0;
 }
 
-.corner-top-slot {
+.island-wrap[data-mode='compact'] .island-links,
+.island-wrap[data-mode='ask'] .island-links {
   grid-template-columns: 0fr;
-}
-
-html.is-scrolled .corner-top-slot {
-  grid-template-columns: 1fr;
-}
-
-.scroll-ring {
   opacity: 0;
-  scale: 0.6;
-  visibility: hidden;
-  transition: opacity 300ms ease, scale 600ms var(--ease-spring), visibility 0s linear 650ms;
 }
 
-html.is-scrolled .scroll-ring {
+.island-wrap[data-mode='compact'] .island {
+  gap: 2px;
+  padding: 4px;
+}
+
+.island-link {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: color-mix(in srgb, var(--paper) 62%, transparent);
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+.island-link:hover,
+.island-link:focus-visible {
+  color: var(--paper);
+  background: color-mix(in srgb, var(--paper) 10%, transparent);
+}
+
+.island-link.is-active {
+  color: var(--paper);
+}
+
+.island-link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 9999px;
+  background: var(--saffron);
+}
+
+.island-link svg {
+  transition: translate 450ms var(--ease-spring);
+}
+
+.island-link:hover svg {
+  translate: 0 -2px;
+}
+
+/* The theme toggle keeps its own sun/moon colours. */
+.island .theme-toggle {
+  color: color-mix(in srgb, var(--paper) 62%, transparent);
+}
+
+.island-tip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  translate: -50% 6px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: var(--coal);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, translate 350ms var(--ease-out-expo);
+}
+
+.island-link:hover .island-tip,
+.island-link:focus-visible .island-tip {
   opacity: 1;
-  scale: 1;
-  visibility: visible;
-  transition: opacity 300ms ease 120ms, scale 600ms var(--ease-spring) 80ms, visibility 0s;
+  translate: -50% 0;
 }
 
-.scroll-ring-track {
-  stroke: var(--line-strong);
+.island-divider {
+  width: 1px;
+  height: 24px;
+  margin: 0 6px;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--paper) 16%, transparent);
 }
 
-.scroll-ring-fill {
+.island-ask {
+  display: inline-flex;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 0 10px;
+  border-radius: 9999px;
+  background: var(--saffron);
+  color: var(--coal);
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 300ms var(--ease-spring), padding 500ms var(--ease-out-expo);
+}
+
+.island-ask:hover {
+  transform: scale(1.03);
+}
+
+.island-ask .island-bindu path {
+  stroke: var(--coal);
+}
+
+.island-ask .island-bindu circle {
+  fill: var(--paper);
+}
+
+.island-bindu {
+  transition: rotate 700ms var(--ease-spring);
+}
+
+.island-ask:hover .island-bindu,
+.island-ask:focus-visible .island-bindu {
+  rotate: 120deg;
+}
+
+.island-kbd {
+  margin-left: 2px;
+  padding: 2px 7px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--coal) 25%, transparent);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--coal) 70%, transparent);
+}
+
+@media (max-width: 860px), (hover: none) {
+  .island-kbd,
+  .island-ask-more {
+    display: none;
+  }
+}
+
+.island-wrap[data-mode='compact'] .island-kbd,
+.island-wrap[data-mode='compact'] .island-ask-more {
+  display: none;
+}
+
+.island-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(520px, calc(100vw - 2 * var(--bar-y) - 70px));
+  height: 44px;
+  padding-right: 2px;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--paper) 8%, transparent);
+  animation: island-grow 600ms var(--ease-out-expo);
+}
+
+@keyframes island-grow {
+  from {
+    width: 140px;
+    opacity: 0.4;
+  }
+}
+
+.island-input {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--paper);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.island-input::placeholder {
+  color: color-mix(in srgb, var(--paper) 50%, transparent);
+}
+
+.island-form:focus-within {
+  box-shadow: 0 0 0 2px var(--saffron);
+}
+
+.island-send {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--saffron);
+  color: var(--coal);
+}
+
+.island-ring {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: var(--paper);
+}
+
+.island-ring-track {
+  stroke: color-mix(in srgb, var(--paper) 16%, transparent);
+}
+
+.island-ring-fill {
   stroke: var(--saffron);
   stroke-linecap: round;
   stroke-dasharray: 1;
   stroke-dashoffset: calc(1 - var(--scroll, 0));
 }
 
-.scroll-ring-arrow {
-  transition: transform 450ms var(--ease-spring);
+.island-ring-arrow {
+  transition: rotate 450ms var(--ease-spring);
 }
 
-.scroll-ring:hover .scroll-ring-arrow,
-.scroll-ring:focus-visible .scroll-ring-arrow {
-  transform: rotate(-45deg) translateY(-1px);
+.island-ring:hover .island-ring-arrow,
+.island-ring:focus-visible .island-ring-arrow {
+  rotate: -45deg;
 }
 
-/* At the footer only "back to top" stays. */
-.ask-fab[data-ask-hidden='true'] .corner-ask-slot {
-  grid-template-columns: 0fr;
+.island-left {
+  padding: 0 12px 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--paper) 72%, transparent);
 }
 
-.ask-fab[data-ask-hidden='true'] .scroll-ring {
-  margin-right: 0;
+.island :focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
 }
 
-html:not(.is-scrolled) .ask-fab[data-ask-hidden='true'] {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.ask-fab {
-  transition: opacity 300ms ease, translate 500ms var(--ease-out-expo);
-}
-
-.ask-bindu {
-  transition: rotate 700ms var(--ease-spring);
-}
-
-.ask-fab button:hover .ask-bindu,
-.ask-fab button:focus-visible .ask-bindu {
-  rotate: 120deg;
+@media (min-width: 861px) {
+  .island-link,
+  .island-ring,
+  .island-ask,
+  .island-form {
+    height: 48px;
+  }
+  .island-link,
+  .island-ring {
+    width: 48px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .corner {
+  .island-wrap,
+  .bar-in {
     animation: none;
   }
-  .corner-top-slot,
-  .corner-ask-slot,
-  .scroll-ring,
-  .ask-bindu {
+  .island-slot,
+  .island,
+  .site-header,
+  .island-form {
+    transition: none;
+    animation: none;
+  }
+}
+
+.social-chip {
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, translate 400ms var(--ease-spring);
+}
+
+.social-chip:hover,
+.social-chip:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cloud);
+  translate: 0 -2px;
+}
+
+/* ───────── Home story: an eight-scene scroll film ───────── */
+.story {
+  height: 760vh;
+  margin-top: 4rem;
+}
+
+.story-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.story-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 84px;
+  padding-bottom: 110px;
+}
+
+.story-view {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+/* The 3D film runs edge to edge; the hidden SVG keeps the layout. */
+.story-canvas {
+  position: absolute;
+  top: -6%;
+  left: 50%;
+  width: 100vw;
+  height: 112%;
+  translate: -50% 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+}
+
+.story.story-3d .story-canvas {
+  opacity: 1;
+}
+
+.story.story-3d .story-svg {
+  visibility: hidden;
+}
+
+/* Film look: softly darker edges and a fine moving grain. */
+.story-vignette,
+.story-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.story-vignette {
+  background: radial-gradient(ellipse 80% 75% at 50% 45%, transparent 60%, color-mix(in srgb, var(--ink) 6%, transparent) 100%);
+}
+
+.story-grain {
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: story-grain 0.6s steps(3) infinite;
+}
+
+@keyframes story-grain {
+  33% {
+    background-position: 40px -30px;
+  }
+  66% {
+    background-position: -50px 20px;
+  }
+}
+
+/* Soft frosted edges behind the top bar and the island, instead of hard bars. */
+.story-blur {
+  position: absolute;
+  inset-inline: 0;
+  z-index: 2;
+  height: 140px;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--cloud) 35%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.story-blur-top {
+  top: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent);
+  mask-image: linear-gradient(to bottom, #000 35%, transparent);
+}
+
+.story-blur-bottom {
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to top, #000 35%, transparent);
+  mask-image: linear-gradient(to top, #000 35%, transparent);
+}
+
+.story-presents {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: calc(var(--v0, 1) * (1 - var(--a0, 0) * 0.6));
+}
+
+.story.story-shake .story-svg {
+  animation: story-shake 360ms linear infinite;
+}
+
+@keyframes story-shake {
+  25% {
+    translate: -5px 2px;
+  }
+  50% {
+    translate: 4px -3px;
+  }
+  75% {
+    translate: -2px 3px;
+  }
+}
+
+.story-svg {
+  width: min(100%, 860px);
+  height: auto;
+  max-height: 58vh;
+  overflow: visible;
+}
+
+.story-svg .st-ink,
+.story-svg .st-line,
+.story-svg .st-soft {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.story-svg .st-ink {
+  stroke: var(--ink);
+  stroke-dasharray: 1;
+}
+
+.story-svg .st-line {
+  stroke: var(--ink);
+  stroke-dasharray: 1;
+}
+
+.story-svg .st-line.dashed {
+  stroke: var(--saffron);
+}
+
+.story-svg .st-soft {
+  stroke: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.story-svg .fill-saffron {
+  fill: var(--saffron);
+}
+
+.story-svg .fill-ink {
+  fill: var(--ink);
+}
+
+.story-svg .fill-coal {
+  fill: var(--coal);
+}
+
+.story-svg .fill-soft {
+  fill: color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.story-svg .screen {
+  fill: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+.story-svg .pop {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.story-svg .grow {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+.story-svg .st-ripple {
+  fill: none;
+  stroke: var(--saffron);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.story-svg .st-thin {
+  stroke: color-mix(in srgb, var(--ink) 35%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-linecap: round;
+}
+
+.story-svg .st-dash {
+  fill: none;
+  stroke: var(--saffron);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+}
+
+.story-svg .st-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 4;
+}
+
+.story-svg .st-trail {
+  stroke: color-mix(in srgb, var(--ink) 22%, transparent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.story-svg .st-dash-thin {
+  stroke-width: 3;
+  opacity: 0.8;
+}
+
+.story-svg .st-crack,
+.story-svg .st-x,
+.story-svg .st-check {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+
+.story-svg .st-crack {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.story-svg .st-x {
+  stroke: var(--ink);
+  stroke-width: 14;
+}
+
+.story-svg .st-check {
+  stroke: var(--saffron);
+  stroke-width: 12;
+}
+
+.story-svg .pivot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.story-svg .beat {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: story-beat 1.8s ease-out infinite;
+}
+
+@keyframes story-beat {
+  0% {
+    scale: 0.7;
+  }
+  100% {
+    scale: 1.25;
+  }
+}
+
+.story-svg .wave {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: story-wave 1.1s ease-in-out infinite;
+  animation-delay: calc(var(--w) * -90ms);
+}
+
+@keyframes story-wave {
+  50% {
+    scale: 1 0.35;
+  }
+}
+
+.story-svg .you-dot {
+  fill: var(--cloud);
+  stroke: var(--saffron);
+  stroke-width: 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: you-pulse 1.8s ease-in-out infinite;
+}
+
+.story-svg .you-label {
+  fill: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+@keyframes you-pulse {
+  50% {
+    scale: 1.15;
+  }
+}
+
+.story-captions {
+  display: grid;
+  width: 100%;
+  text-align: center;
+}
+
+.story-caption {
+  grid-area: 1 / 1;
+  font-size: clamp(32px, 5vw, 68px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.story-caption:last-child {
+  color: var(--saffron);
+}
+
+.story-cta {
+  opacity: 0;
+  translate: 0 14px;
+  visibility: hidden;
+  transition: opacity 400ms ease, translate 600ms var(--ease-out-expo), visibility 0s linear 400ms;
+}
+
+.story.story-end .story-cta {
+  opacity: 1;
+  translate: 0 0;
+  visibility: visible;
+  transition: opacity 400ms ease, translate 600ms var(--ease-out-expo), visibility 0s;
+}
+
+.story-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
+}
+
+.story-chapter {
+  display: inline-flex;
+  min-height: 44px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: color 250ms ease;
+}
+
+.story-chapter:hover,
+.story-chapter.is-active {
+  color: var(--ink);
+}
+
+.story-chapter-bar {
+  display: block;
+  width: 48px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.story-chapter-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--saffron);
+  transform-origin: left;
+}
+
+.story-chapter.is-done .story-chapter-bar > span {
+  scale: 1 1 !important;
+}
+
+@media (max-width: 860px) {
+  .story {
+    height: 600vh;
+  }
+  .story-svg {
+    max-height: 52vh;
+  }
+}
+
+/* Phones: the drawings use the middle of the stage, so trim its empty sides. */
+@media (max-width: 600px) {
+  .story-svg {
+    width: 128%;
+    max-width: none;
+    margin-inline: -14%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-svg .you-dot,
+  .story-svg .wave,
+  .story-svg .beat {
+    animation: none;
+  }
+  .story-grain {
+    display: none;
+  }
+  .story-caption {
+    translate: none !important;
+  }
+}
+
+/* "X over Y": the rejected side gets a saffron strike as it arrives. */
+.principle-strike {
+  background-image: linear-gradient(var(--saffron), var(--saffron));
+  background-repeat: no-repeat;
+  background-position: 0 58%;
+  background-size: 0% 0.08em;
+  transition: background-size 900ms var(--ease-out-expo) 250ms;
+}
+
+.principle.is-in .principle-strike {
+  background-size: 100% 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .principle-strike {
+    background-size: 100% 0.08em;
     transition: none;
   }
+}
+
+/* Social icons in the top bar */
+.bar-social svg {
+  width: 20px;
+  height: 20px;
+  transition: translate 450ms var(--ease-spring);
+}
+
+.bar-social {
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+.bar-social:hover,
+.bar-social:focus-visible {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.bar-social:hover svg {
+  translate: 0 -2px;
+}
+
+.bar-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  translate: -50% -4px;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--cloud);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, translate 350ms var(--ease-out-expo);
+}
+
+.bar-social:hover .bar-tip,
+.bar-social:focus-visible .bar-tip {
+  opacity: 1;
+  translate: -50% 0;
 }

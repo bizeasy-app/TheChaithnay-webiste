@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Resources | The Chaithanya',
-  description: 'Tools, templates and guides from real experiments with AI, business and productivity. The first resources open here soon.',
+  description: 'The tools, templates and guides I actually use, from real experiments with AI, business and productivity. Opening soon.',
   path: '/resources',
 });
 
@@ -21,9 +21,9 @@ export default function ResourcesPage() {
     <>
       <PageHero
         id="res-h"
-        label="Resources · Being built"
+        label="Being built"
         lines={['Things you', 'can use']}
-        intro="Everything here comes out of real work: if I haven't used it, it doesn't go on the shelf. The first resources open soon."
+        intro="One rule: if I haven't used it for real, it doesn't go on the shelf. The first resources open soon."
       >
         <EmailForm source="newsletter" tag="resources-launch" layout="pill" label="Tell me when they're ready" buttonLabel="Notify me" />
       </PageHero>

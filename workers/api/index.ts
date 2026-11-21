@@ -76,9 +76,13 @@ export async function handle(
   const length = Number(request.headers.get('Content-Length') || 0);
   if (length > 20_000) return json({ ok: false, error: 'Message is too long.' }, 413, origin);
 
+  // The header can be missing or wrong (chunked uploads), so check the real size too.
+  const text = await request.text();
+  if (text.length > 20_000) return json({ ok: false, error: 'Message is too long.' }, 413, origin);
+
   let body: unknown;
   try {
-    body = await request.json();
+    body = JSON.parse(text);
   } catch {
     return json({ ok: false, error: 'Send a JSON body.' }, 400, origin);
   }

@@ -110,7 +110,7 @@ export function EmailForm({
 
       {layout === 'card' ? (
         <Button type="submit" variant="saffron" size="lg" disabled={busy} className="mt-1.5 w-full">
-          {busy ? 'Sending…' : (buttonLabel ?? 'Subscribe — it’s free')}
+          {busy ? 'Sending…' : (buttonLabel ?? 'Subscribe free')}
         </Button>
       ) : null}
 
@@ -159,7 +159,7 @@ function InlineFields({
   buttonLabel?: string;
   statusId?: string;
 }) {
-  const fieldLabel = label ?? (layout === 'band' ? 'Email address' : 'Get the newsletter every two weeks');
+  const fieldLabel = label ?? (layout === 'band' ? 'Email address' : 'One free email every two weeks');
 
   return (
     <>

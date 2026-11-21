@@ -3,6 +3,13 @@ import { LineReveal } from '@/components/home/LineReveal';
 import { Reveal } from '@/components/motion/Reveal';
 import { EmailForm } from '@/components/ui/EmailForm';
 
+const promise = [
+  ['Learn', 'one tool, idea or skill, explained simply'],
+  ['Try', 'one thing you can use the same day'],
+  ['Understand', 'what is actually changing in tech and business'],
+  ['Think', 'one honest lesson from building'],
+];
+
 export function EndCTA() {
   return (
     <section aria-labelledby="end-h" className="mx-auto w-full max-w-page px-5 pt-16 min-[861px]:pt-32 max-[480px]:px-4">
@@ -16,8 +23,18 @@ export function EndCTA() {
         <LineReveal
           id="end-h"
           className="relative m-0 max-w-[820px] text-[clamp(48px,7vw,96px)] font-extrabold leading-[0.95] tracking-[-0.05em]"
-          lines={[{ text: 'Learn with me,' }, { text: 'every ', accent: 'two weeks.' }]}
+          lines={[{ text: 'One email.' }, { text: 'Four things.' }]}
         />
+        <ul className="relative m-0 grid max-w-[880px] list-none gap-x-10 gap-y-4 p-0 min-[700px]:grid-cols-2">
+          {promise.map(([verb, rest]) => (
+            <li key={verb} className="flex gap-3 text-[18px] leading-[1.45]">
+              <span className="mt-[0.5em] h-2 w-2 shrink-0 rounded-full bg-saffron" aria-hidden="true" />
+              <span>
+                <strong className="font-extrabold">{verb}:</strong> <span className="opacity-80">{rest}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
         <div className="relative max-w-[560px]">
           <EmailForm source="home" />
         </div>

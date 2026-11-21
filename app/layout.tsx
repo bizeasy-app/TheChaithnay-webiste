@@ -8,7 +8,7 @@ import { SkipLink } from '@/components/layout/SkipLink';
 import { HashScroll } from '@/components/motion/HashScroll';
 import { Cursor } from '@/components/motion/Cursor';
 import { MagneticField } from '@/components/motion/MagneticField';
-import { FloatingDock } from '@/components/social/FloatingDock';
+import { Island } from '@/components/layout/Island';
 import { PageIntro } from '@/components/motion/PageIntro';
 import { ScrollFX } from '@/components/motion/ScrollFX';
 import { SmoothScroll } from '@/components/motion/SmoothScroll';
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <Footer />
         <AskMe />
-        <FloatingDock />
+        <Island />
         <Cursor />
         <MagneticField />
         <Analytics />

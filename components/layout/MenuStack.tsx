@@ -7,6 +7,7 @@ import { externalUrl } from '@/lib/links';
 import { sections } from '@/lib/brand';
 import { site } from '@/lib/site';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
+import { socials } from '@/components/social/socials';
 
 const ROLES: [string, string][] = [
   ['Tries', 'new.'],
@@ -97,7 +98,21 @@ export function MenuStack({ pathname, onNavigate }: { pathname: string; onNaviga
         className="rail-in flex flex-wrap items-center justify-between gap-4 text-[14px] font-bold normal-case leading-normal tracking-normal min-[1180px]:col-span-2"
         style={{ ['--i' as string]: LINKS.length + 2 }}
       >
-        <span className="font-semibold text-muted">Technology. AI. Entrepreneurship. Productivity. In Telugu &amp; English.</span>
+        <span className="font-semibold text-muted">Try new things. Build real ones. Share what happened.</span>
+        <span className="flex flex-wrap items-center gap-2">
+          {socials.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.label}
+              className="social-chip inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink"
+            >
+              <item.Icon />
+            </a>
+          ))}
+        </span>
         <span className="flex items-center gap-4">
           {video ? (
             <a href={video} target="_blank" rel="noopener noreferrer" data-cursor="Watch" className="draw text-ink">

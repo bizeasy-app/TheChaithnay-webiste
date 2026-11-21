@@ -3,7 +3,7 @@ export const site = {
   url: 'https://thechaithanya.com',
   tagline: 'Try new. Learn fast. Build big.',
   description:
-    'An independent, creator-led media brand on technology, AI, entrepreneurship and productivity. Real experiments, practical lessons, in Telugu and English.',
+    "I try new tech, build real things with it and share exactly what happened. Practical lessons on AI, business and productivity, from a builder.",
   author: 'Chaithanya',
   locale: 'en_IN',
   twitter: '@TheChaithanya7',

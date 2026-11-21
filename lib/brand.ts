@@ -14,7 +14,6 @@ export const brand = {
     'Something practical to try.',
     'Something meaningful to think about.',
   ],
-  languages: 'Telugu and English',
   cadence: {
     articles: 'One article every week',
     newsletter: 'One newsletter every two weeks',
@@ -22,11 +21,11 @@ export const brand = {
 } as const;
 
 export const principles = [
-  { title: 'Curiosity over assumptions', body: 'Explore ideas and remain open to learning.' },
-  { title: 'Experiments over theories', body: 'Test, build and share actual observations.' },
-  { title: 'Clarity over complexity', body: 'Explain difficult concepts in simple language.' },
-  { title: 'Value over virality', body: 'Prioritize usefulness and trust.' },
-  { title: 'Progress over perfection', body: 'Share meaningful learning and improvement.' },
+  { title: 'Curiosity over assumptions', body: 'I would rather ask a dumb question than guess.' },
+  { title: 'Experiments over theories', body: 'If I write about it, I have tried it.' },
+  { title: 'Clarity over complexity', body: 'Hard ideas, plain words. No jargon to sound smart.' },
+  { title: 'Value over virality', body: 'Useful beats loud. Your trust matters more than a view count.' },
+  { title: 'Progress over perfection', body: 'Ship it, learn from it, share it. Then do it better.' },
 ] as const;
 
 export const series = [
@@ -39,26 +38,26 @@ export const series = [
 ] as const;
 
 export const audiences = [
-  { name: 'Students and learners', interests: 'Technology, skills and education' },
-  { name: 'Developers and creators', interests: 'AI, coding and workflows' },
-  { name: 'Founders and entrepreneurs', interests: 'Startups, products and business' },
-  { name: 'Professionals', interests: 'Productivity, innovation and decision-making' },
+  { name: 'Students and learners', interests: 'Who want skills that matter after the exam' },
+  { name: 'Developers and creators', interests: 'Who want AI to do real work, not demos' },
+  { name: 'Founders and entrepreneurs', interests: 'Who want lessons before they cost money' },
+  { name: 'Professionals', interests: 'Who want to work smarter and decide better' },
 ] as const;
 
 export const brandIs = [
-  'An independent creator-led media platform.',
-  'A source of original ideas and practical knowledge.',
-  'A record of experiments and projects.',
-  'A platform for technology and business insights.',
-  'A long-term professional identity.',
+  'Independent. No company tells me what to say.',
+  'Original ideas and lessons you can use.',
+  'A public record of real experiments and projects.',
+  'Honest notes on technology and business.',
+  'Built for the long run, one week at a time.',
 ] as const;
 
 export const brandIsNot = [
-  'A generic AI news page.',
-  'A motivational quotes account.',
-  'A collection of random viral videos.',
-  'A fake expert or guru brand.',
-  'A portfolio limited to technical skills.',
+  'Another AI news feed.',
+  'Motivational quotes.',
+  'Random viral videos.',
+  'A guru selling a course.',
+  'Just a portfolio of code.',
 ] as const;
 
 /** The 8 sections from the website architecture, in nav order. */

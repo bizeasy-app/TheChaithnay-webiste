@@ -4,23 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useRef, useState } from 'react';
 import { BinduMark } from '@/components/brand/BinduMark';
-import { GridGlyph, HomeGlyph, MailGlyph, NotesGlyph, PersonGlyph } from '@/components/social/icons';
 import { MenuStack } from '@/components/layout/MenuStack';
-import { ThemeToggle } from '@/components/layout/ThemeToggle';
-
-// James-style tool bar: round mark + outline icons, labels on hover.
-const tools = [
-  { href: '/', label: 'Home', Icon: HomeGlyph, exact: true, phone: false },
-  { href: '/insights', label: 'Insights', Icon: NotesGlyph, exact: false, phone: true },
-  { href: '/projects', label: 'Projects', Icon: GridGlyph, exact: false, phone: true },
-  { href: '/about', label: 'About', Icon: PersonGlyph, exact: false, phone: false },
-  { href: '/contact', label: 'Contact', Icon: MailGlyph, exact: false, phone: false },
-];
-
-function isActive(href: string, pathname: string, exact = false) {
-  if (exact) return pathname === href;
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
+import { socials } from '@/components/social/socials';
 
 function JoinLink() {
   return (
@@ -89,39 +74,44 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-[var(--corner-y)] z-30 mx-auto mt-[var(--corner-y)] w-full max-w-page px-5 max-[480px]:px-4">
+    <header className="site-header sticky top-[var(--bar-y)] z-30 mx-auto mt-[var(--bar-y)] w-full max-w-page px-5 max-[480px]:px-4">
       <div className="site-nav relative z-30 flex items-center justify-between gap-3">
-        <nav aria-label="Main" className="nav-tools corner-pill corner corner-tl flex items-center gap-0.5 p-1.5 min-[481px]:gap-1"
-          style={{ ['--corner-i' as string]: 0 }}>
-          <Link
-            href="/"
-            aria-label="The Chaithanya — home"
-            data-magnetic="0.3"
-            className="nav-mark inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong min-[861px]:h-12 min-[861px]:w-12"
-          >
-            <BinduMark size={24} />
-          </Link>
-          {tools.map(({ href, label, Icon, exact, phone }) => {
-            const active = isActive(href, pathname, exact);
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-label={label}
-                aria-current={active ? 'page' : undefined}
-                className={`nav-tool relative inline-flex h-11 w-11 items-center justify-center rounded-full min-[861px]:h-12 min-[861px]:w-12${active ? ' is-active' : ''}${phone ? '' : ' max-[600px]:hidden'}`}
+        <Link
+          href="/"
+          aria-label="The Chaithanya, home"
+          className="bar-brand bar-in group inline-flex min-h-11 items-center gap-3 rounded-full pr-3 text-ink no-underline"
+        >
+          <span className="bar-mark inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full min-[861px]:h-12 min-[861px]:w-12">
+            <BinduMark size={26} />
+          </span>
+          <span className="bar-word text-[17px] font-extrabold tracking-[-0.03em] max-[599px]:hidden" aria-hidden="true">
+            The Chaithanya
+          </span>
+        </Link>
+        <div className="flex items-center gap-2">
+        {socials.length > 0 ? (
+          <nav aria-label="Social media" className="bar-pill bar-in flex items-center p-1.5" style={{ animationDelay: '60ms' }}>
+            {socials.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                className="bar-social relative inline-flex h-11 w-11 items-center justify-center rounded-full text-body min-[861px]:h-12 min-[861px]:w-12"
               >
-                <Icon />
-                <span className="nav-tip" aria-hidden="true">
-                  {label}
+                <item.Icon />
+                <span className="bar-tip" aria-hidden="true">
+                  {item.label}
                 </span>
-              </Link>
-            );
-          })}
-          <ThemeToggle className="nav-tool max-[400px]:hidden min-[861px]:h-12 min-[861px]:w-12" />
-        </nav>
-        <div className="corner-pill corner corner-tr flex items-center gap-1.5 p-1.5" style={{ ['--corner-i' as string]: 1 }}>
-          <JoinLink />
+              </a>
+            ))}
+          </nav>
+        ) : null}
+        <div className="bar-pill bar-in flex items-center gap-1.5 p-1.5" style={{ animationDelay: '120ms' }}>
+          <span className="max-[479px]:hidden">
+            <JoinLink />
+          </span>
           <button
             ref={buttonRef}
             type="button"
@@ -140,6 +130,7 @@ export function Nav() {
               <span />
             </span>
           </button>
+        </div>
         </div>
       </div>
       {open ? (

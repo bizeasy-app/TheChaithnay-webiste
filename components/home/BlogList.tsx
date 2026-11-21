@@ -13,8 +13,8 @@ export function BlogList({ posts }: { posts: Pick<Post, 'slug' | 'title' | 'topi
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <LineReveal
           id="blog-h"
-          className="m-0 text-[clamp(44px,6vw,80px)] font-extrabold leading-[0.95] tracking-[-0.05em]"
-          lines={[{ text: 'Latest' }, { text: 'insights.' }]}
+          className="m-0 text-[clamp(40px,5.4vw,72px)] font-extrabold leading-[0.98] tracking-[-0.045em]"
+          lines={[{ text: 'Latest' }, { text: 'insights' }]}
         />
         <Button href="/insights" variant="outline" className="!font-extrabold">
           All insights

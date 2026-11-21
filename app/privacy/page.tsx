@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy policy | The Chaithanya',
-  description: 'How The Chaithanya handles your email and messages.',
+  description: 'What The Chaithanya collects when you subscribe or send a message, why, where it is stored and how to have it deleted.',
   path: '/privacy',
 });
 

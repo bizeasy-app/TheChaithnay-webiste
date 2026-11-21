@@ -8,7 +8,7 @@ import { blogJsonLd, pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Insights | The Chaithanya',
   description:
-    'Articles on technology, AI, business and productivity — opinions, tutorials and lessons from real experiments. One new article every week.',
+    'One new article every week on what I learned trying new tech, building with it and running a business. Practical, honest, no hype.',
   path: '/insights',
 });
 

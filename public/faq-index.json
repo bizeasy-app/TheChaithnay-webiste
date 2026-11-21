@@ -10,7 +10,7 @@
         "founder",
         "creator"
       ],
-      "a": "I'm Chaithanya — The Chaithanya is my independent, creator-led media brand on technology, AI, entrepreneurship and productivity. Try new. Learn fast. Build big.",
+      "a": "I'm Chaithanya. I try new technology, build real things with it and share exactly what happened, including what broke. Try new. Learn fast. Build big.",
       "links": [
         "/about"
       ]
@@ -215,13 +215,14 @@
     },
     {
       "id": "language",
-      "q": "Is the content in Telugu?",
+      "q": "What language is the content in?",
       "keywords": [
         "telugu",
         "hindi",
-        "language"
+        "language",
+        "english"
       ],
-      "a": "Telugu and English.",
+      "a": "Everything is in English.",
       "links": []
     }
   ],

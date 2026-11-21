@@ -147,9 +147,9 @@ function llms(posts: Post[]) {
   const postLines = posts.map((post) => `- [${post.title}](${absoluteUrl(`/insights/${post.slug}`)}): ${post.summary}`);
   return `# The Chaithanya
 
-> An independent, creator-led media brand on technology, AI, entrepreneurship and productivity, by Chaithanya. Tagline: Try new. Learn fast. Build big.
+> Chaithanya tries new technology, builds real things with it and shares exactly what happened: AI, business and productivity, from a builder's point of view. Tagline: Try new. Learn fast. Build big.
 
-A builder's perspective on technology, business and growth: original ideas, real experiments and practical lessons. The brand is faceless — real voice, real screen, real work — and publishes in Telugu and English. One article every week; a newsletter every two weeks.
+A builder's perspective on technology, business and growth: original ideas, real experiments and practical lessons. The brand is faceless — real voice, real screen, real work — and publishes in English. One article every week; a newsletter every two weeks.
 
 ## Start here
 - [Home](${site.url}/): what The Chaithanya is

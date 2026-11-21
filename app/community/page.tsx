@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Community | The Chaithanya',
-  description: 'A community of curious learners and builders — discussions, shared experiments and learning together. Opening soon.',
+  description: 'A small community for people who learn by building: honest feedback, shared experiments and short learning challenges. Opening soon.',
   path: '/community',
 });
 
@@ -21,15 +21,15 @@ export default function CommunityPage() {
     <>
       <PageHero
         id="com-h"
-        label="Community · Opening soon"
+        label="Opening soon"
         lines={['Learn and build,', 'together']}
-        intro="Curious minds, practical thinking, meaningful building — better with other people. The community isn't open yet; join the list and you'll get the first invite."
+        intro="A small room for people who learn by building. It isn't open yet. Join the list and you'll get the first invite."
       >
         <EmailForm source="newsletter" tag="community-launch" layout="pill" label="Get the first invite" buttonLabel="Join the list" />
       </PageHero>
 
       <section aria-labelledby="plan-h" className="mx-auto w-full max-w-page px-5 pt-20 min-[861px]:pt-28 max-[480px]:px-4">
-        <SectionHead id="plan-h" title="What it will be" aside="Built around engagement, not follower counts." />
+        <SectionHead id="plan-h" title="What it will be" aside="Built around people helping people, not follower counts." />
         <ul className="m-0 grid list-none gap-5 p-0 min-[861px]:grid-cols-3">
           {plans.map((item, index) => (
             <SoonCard key={item.title} title={item.title} body={item.body} index={index} />

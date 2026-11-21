@@ -7,14 +7,15 @@ import { newsletterJsonLd, pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Newsletter | The Chaithanya',
   description:
-    'One email every two weeks: original insights on technology, AI, business and productivity, plus what I learned from real experiments. Free.',
+    'One free email every two weeks with four things: something to learn, something to try, something to understand and one honest lesson from building.',
   path: '/newsletter',
 });
 
-const points = [
-  'Original insights you won’t find on my socials',
-  'What I tried, what happened, what I learned',
-  'One email every two weeks. No hype, no spam.',
+const points: [string, string][] = [
+  ['Learn', 'one tool, idea or skill, explained simply'],
+  ['Try', 'one thing you can use the same day'],
+  ['Understand', 'what is actually changing in tech and business'],
+  ['Think', 'one honest lesson from building'],
 ];
 
 export default function NewsletterPage() {
@@ -26,18 +27,20 @@ export default function NewsletterPage() {
           <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-5">
             <p className="m-0 flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.08em] text-on-indigo">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-saffron" aria-hidden="true" />
-              The Chaithanya newsletter
+              Free, every two weeks
             </p>
             <h1 id="nl-h" className="m-0 text-[clamp(40px,5vw,64px)] font-extrabold leading-[1.02] tracking-[-0.035em]">
-              Learn what I learn,
+              One email.
               <br />
-              <span className="text-saffron">straight to your inbox.</span>
+              <span className="text-saffron">Four things worth your time.</span>
             </h1>
             <ul className="m-0 flex list-none flex-col gap-3 p-0 text-[18px] font-semibold text-on-indigo-soft">
-              {points.map((point) => (
-                <li key={point} className="flex items-center gap-3">
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-saffron" aria-hidden="true" />
-                  {point}
+              {points.map(([verb, rest]) => (
+                <li key={verb} className="flex items-baseline gap-3">
+                  <span className="h-2 w-2 shrink-0 translate-y-[-2px] rounded-full bg-saffron" aria-hidden="true" />
+                  <span>
+                    <strong className="font-extrabold text-paper">{verb}:</strong> {rest}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -52,7 +55,6 @@ export default function NewsletterPage() {
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
           <h2 id="issues-h" className="m-0 flex items-baseline gap-3 text-[clamp(40px,6vw,80px)] font-extrabold leading-[0.95] tracking-[-0.05em]">
             Previous issues
-            <span className="font-mono text-[15px] font-medium tracking-normal text-muted">00</span>
           </h2>
         </div>
         <div className="flex flex-col items-start gap-5 rounded-[28px] border-2 border-dashed border-line-strong p-8 min-[861px]:p-12">
@@ -60,11 +62,11 @@ export default function NewsletterPage() {
             Issue #1 hasn&apos;t gone out yet.
           </p>
           <p className="m-0 max-w-[56ch] text-[18px] leading-[1.55] text-body">
-            Past issues will be archived here. Subscribe above to get the first one — and in the meantime, the weekly articles
-            are on Insights.
+            Subscribe now and it&apos;s the first email you get. Every issue will be archived here. Until then, a new article
+            goes up on Insights every week.
           </p>
           <Button href="/insights" variant="outline">
-            Read insights →
+            Start reading
           </Button>
         </div>
       </section>

@@ -9,7 +9,8 @@
     "test": "tsx --test components/askme/matcher.test.ts lib/markdown.test.ts lib/slug.test.ts lib/readingTime.test.ts lib/images.test.ts workers/api/api.test.ts",
     "build": "npm run fetch && npm run faq && npm run feeds && next build",
     "deploy": "NEXT_PUBLIC_API_BASE= NEXT_PUBLIC_SITE_URL=https://thechaithanya.com npm run build && npx wrangler deploy",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "rm -rf out/dev"
   },
   "dependencies": {
     "@notionhq/client": "^5.31.1",
@@ -17,7 +18,8 @@
     "next": "^15.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@fontsource/manrope": "^5.3.0",
@@ -25,6 +27,7 @@
     "@types/node": "^22.19.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "@types/three": "^0.180.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "satori": "^0.63.2",
@@ -32,5 +35,10 @@
     "tsx": "^4.23.15",
     "typescript": "^5.9.2",
     "wrangler": "^4.165.0"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "$postcss"
+    }
   }
 }

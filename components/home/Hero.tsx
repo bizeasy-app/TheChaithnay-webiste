@@ -1,6 +1,6 @@
-import { AskBar } from '@/components/home/AskBar';
 import { LetterGrid } from '@/components/home/LetterGrid';
 import { LineReveal } from '@/components/home/LineReveal';
+import { Button } from '@/components/ui/Button';
 import { externalUrl } from '@/lib/links';
 import { site } from '@/lib/site';
 
@@ -44,16 +44,21 @@ export function Hero() {
       >
         <LetterGrid />
       </div>
-      <div className="flex flex-wrap items-end justify-between gap-8">
-        <div className="flex min-w-0 max-w-[520px] flex-[1_1_380px] flex-col gap-7">
-          <p className="arrive m-0 text-[21px] font-medium leading-[1.5] text-body" style={{ animationDelay: '420ms' }}>
-            A builder&apos;s perspective on technology, AI, business and productivity. Real experiments, clear lessons — in Telugu and English.
-          </p>
+      <div className="flex max-w-[620px] flex-col gap-7">
+        <p className="arrive m-0 text-[clamp(19px,1.6vw,22px)] font-medium leading-[1.5] text-body" style={{ animationDelay: '420ms' }}>
+          I try new tech, build something real with it and tell you exactly what happened, so you can skip the hype and start building.
+        </p>
+        <div className="arrive flex flex-wrap items-center gap-3" style={{ animationDelay: '540ms' }}>
+          <Button href="/insights" size="lg">
+            Start reading
+          </Button>
+          <Button href="/newsletter" variant="outline" size="lg">
+            Get the newsletter
+          </Button>
         </div>
-        <AskBar className="arrive" style={{ animationDelay: '520ms' }} />
       </div>
-      <div className="scroll-cue flex flex-col items-center gap-2 pt-6 text-[12px] font-extrabold uppercase tracking-[0.16em] text-muted" aria-hidden="true">
-        <span>Scroll</span>
+      <div className="scroll-cue flex flex-col items-center gap-2 pt-10 text-[13px] font-bold text-muted" aria-hidden="true">
+        <span>Scroll for the story</span>
         <span className="scroll-cue-line block h-10 w-px bg-saffron" />
       </div>
     </section>

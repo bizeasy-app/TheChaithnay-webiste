@@ -3,7 +3,7 @@ import { site } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
-const hidden = ['/dev/ui', '/insights/__empty'];
+const hidden = ['/insights/__empty'];
 
 export default function robots(): MetadataRoute.Robots {
   return {

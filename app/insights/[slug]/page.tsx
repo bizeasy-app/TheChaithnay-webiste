@@ -78,7 +78,7 @@ export default async function PostPage({ params }: Props) {
     <>
       <JsonLd data={postJsonLd(post)} />
       <ProgressBar />
-      <article id="post">
+      <article id="post" data-read-minutes={post.readingMinutes}>
         <header className="mx-auto flex w-full max-w-page flex-col gap-7 px-5 pt-16 min-[861px]:pt-[72px] max-[480px]:px-4">
           <nav aria-label="Breadcrumb" className="flex gap-2 text-sm font-bold text-muted">
             <Link href="/insights" className="text-muted">

@@ -39,8 +39,8 @@ function BlogView({
     <SplitPage
       nav={
         <StackNav current="insights">
-          <h1 className="m-0 inline text-[17px] font-medium">Insights</h1> on technology, AI, business and productivity —
-          opinions, tutorials and lessons from real experiments. One new article every week.
+          <h1 className="m-0 inline text-[17px] font-medium">Insights</h1>: what I learned trying new tech, building with it and
+          running a business. One new article every week.
         </StackNav>
       }
     >
