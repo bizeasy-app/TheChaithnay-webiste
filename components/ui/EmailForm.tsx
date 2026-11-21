@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 import { subscribe, type SubscribeSource } from '@/lib/subscribe';
 
-const SUCCESS = "You're on the list. The founder log comes every Saturday.";
+const SUCCESS = "You're on the list. The next issue lands in your inbox.";
 const ERROR = "That didn't work. Try again in a minute.";
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -110,7 +110,7 @@ export function EmailForm({
 
       {layout === 'card' ? (
         <Button type="submit" variant="saffron" size="lg" disabled={busy} className="mt-1.5 w-full">
-          {busy ? 'Sending…' : (buttonLabel ?? 'Send me the founder log')}
+          {busy ? 'Sending…' : (buttonLabel ?? 'Subscribe — it’s free')}
         </Button>
       ) : null}
 
@@ -159,7 +159,7 @@ function InlineFields({
   buttonLabel?: string;
   statusId?: string;
 }) {
-  const fieldLabel = label ?? (layout === 'band' ? 'Email address' : 'Get the founder log every Saturday');
+  const fieldLabel = label ?? (layout === 'band' ? 'Email address' : 'Get the newsletter every two weeks');
 
   return (
     <>

@@ -1,12 +1,13 @@
 type BinduMarkProps = {
   size?: number;
-  tone?: 'ink' | 'cloud';
+  /** ink/cloud follow the theme; paper is fixed light (for indigo/photo backgrounds). */
+  tone?: 'ink' | 'cloud' | 'paper';
   blink?: boolean;
   className?: string;
 };
 
 export function BinduMark({ size = 32, tone = 'ink', blink = false, className }: BinduMarkProps) {
-  const stroke = tone === 'ink' ? '#1A1714' : '#F0EEE9';
+  const stroke = tone === 'paper' ? 'var(--paper)' : tone === 'ink' ? 'var(--ink)' : 'var(--cloud)';
 
   return (
     <svg

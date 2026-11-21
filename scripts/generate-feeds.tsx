@@ -104,7 +104,7 @@ function xml(value: string) {
 
 function rss(posts: Post[]) {
   const items = posts.slice(0, 20).map((post) => {
-    const link = absoluteUrl(`/blog/${post.slug}`);
+    const link = absoluteUrl(`/insights/${post.slug}`);
     const date = new Date(`${post.date}T00:00:00+05:30`).toUTCString();
     return `    <item>
       <title>${xml(post.title)}</title>
@@ -133,7 +133,7 @@ function postMarkdown(post: Post) {
   const lines = [
     `# ${post.title}`,
     '',
-    `Published: ${post.date} · Topic: ${post.topic} · URL: ${absoluteUrl(`/blog/${post.slug}`)}`,
+    `Published: ${post.date} · Topic: ${post.topic} · URL: ${absoluteUrl(`/insights/${post.slug}`)}`,
     '',
   ];
   if (post.tldr.length > 0) {
@@ -144,42 +144,53 @@ function postMarkdown(post: Post) {
 }
 
 function llms(posts: Post[]) {
-  const postLines = posts.map((post) => `- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)}): ${post.summary}`);
+  const postLines = posts.map((post) => `- [${post.title}](${absoluteUrl(`/insights/${post.slug}`)}): ${post.summary}`);
   return `# The Chaithanya
 
-> Founder log from Chaithanya, a solo Indian founder building with AI. Startup lessons, AI tools & building, money & investing, and life & mindset — shared honestly, wins and failures, every Saturday. Tagline: Try new. Learn fast. Build big.
+> An independent, creator-led media brand on technology, AI, entrepreneurship and productivity, by Chaithanya. Tagline: Try new. Learn fast. Build big.
 
-The Chaithanya is a faceless personal brand: screen, voice and story — no face on camera. Content is in English, for young Indians (18–30) who want to build something. Products are being built in public and are not public yet.
+A builder's perspective on technology, business and growth: original ideas, real experiments and practical lessons. The brand is faceless — real voice, real screen, real work — and publishes in Telugu and English. One article every week; a newsletter every two weeks.
 
 ## Start here
-- [Home](${site.url}/): who Chaithanya is and what the founder log is
-- [Blog](${site.url}/blog): all posts, filterable by topic
-- [Newsletter](${site.url}/newsletter): the weekly founder log by email, every Saturday
+- [Home](${site.url}/): what The Chaithanya is
+- [About](${site.url}/about): mission, philosophy and what the brand is and isn't
+- [Insights](${site.url}/insights): all articles, filterable by pillar
+- [Newsletter](${site.url}/newsletter): original insights by email, every two weeks
 
-## Posts
+## Articles
 ${postLines.join('\n')}
 
-## Topics
-- Startup lessons
-- AI tools & building
-- Money & investing
-- Life & mindset
+## Pillars
+- Technology & AI
+- Business & Entrepreneurship
+- Productivity & Thinking
+- Building & Experiments
+
+## Series
+- The AI Brief
+- Build Notes
+- Business Thinking
+- Better Systems
+- The Deep Dive
+- Things I Learned
 
 ## Follow
-- [YouTube](${site.socials.youtube}): weekly founder log video, every Saturday
-- [Instagram](${site.socials.instagram}): Reels
-- [X](${site.socials.x}): build notes
-- [LinkedIn](${site.socials.linkedin}): founder lessons
+- [YouTube](${site.socials.youtube}): shorts and long-form videos
+- [Instagram](${site.socials.instagram}): Reels and carousels
+- [LinkedIn](${site.socials.linkedin}): business and technology insights
+- [X](${site.socials.x}): opinions and observations
 
 ## Optional
-- [Full text of all posts](${site.url}/llms-full.txt)
-- [Products & experiments](${site.url}/products): coming soon
-- [Connect](${site.url}/newsletter#contact): write about collabs, sponsorships, podcasts, or experiment ideas
+- [Full text of all articles](${site.url}/llms-full.txt)
+- [Projects](${site.url}/projects): products, experiments and case studies — coming soon
+- [Resources](${site.url}/resources): tools, templates and guides — coming soon
+- [Community](${site.url}/community): coming soon
+- [Contact](${site.url}/contact): professional inquiries, partnerships and collaborations
 `;
 }
 
 function llmsFull(posts: Post[]) {
-  const header = llms([]).split('## Posts')[0].trim();
+  const header = llms([]).split('## Articles')[0].trim();
   const bodies = posts.map((post) => postMarkdown(post).trim());
   return `${header}\n\n${bodies.join('\n\n---\n\n')}\n`;
 }
@@ -187,7 +198,7 @@ function llmsFull(posts: Post[]) {
 async function main() {
   const posts = getAllPosts();
   const ogDir = path.join(publicDir, 'og');
-  const blogDir = path.join(publicDir, 'blog');
+  const blogDir = path.join(publicDir, 'insights');
   fs.mkdirSync(ogDir, { recursive: true });
   fs.mkdirSync(blogDir, { recursive: true });
 

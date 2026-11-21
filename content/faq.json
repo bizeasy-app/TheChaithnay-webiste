@@ -2,106 +2,225 @@
   {
     "id": "who",
     "q": "Who is Chaithanya?",
-    "keywords": ["who", "about", "chaithanya", "founder"],
-    "a": "Chaithanya is a solo Indian founder with a team of ten. He builds with AI tools like Claude Code and shares the whole journey — wins and failures — as a weekly founder log.",
-    "links": ["/"]
+    "keywords": [
+      "who",
+      "about",
+      "chaithanya",
+      "founder",
+      "creator"
+    ],
+    "a": "I'm Chaithanya — The Chaithanya is my independent, creator-led media brand on technology, AI, entrepreneurship and productivity. Try new. Learn fast. Build big.",
+    "links": [
+      "/about"
+    ]
   },
   {
     "id": "building",
     "q": "What are you building?",
-    "keywords": ["building", "build", "products", "product", "projects"],
-    "a": "Several products, built with AI, in public. They'll open on the Products page soon — join the founder log to see them first.",
-    "links": ["/products", "/newsletter"]
+    "keywords": [
+      "building",
+      "build",
+      "products",
+      "product",
+      "projects"
+    ],
+    "a": "Products, experiments and case studies, built in public. They'll open on the Projects page soon — subscribe to see them first.",
+    "links": [
+      "/projects",
+      "/newsletter"
+    ]
   },
   {
     "id": "start",
-    "q": "Where do I start on the blog?",
-    "keywords": ["start", "begin", "first", "read", "blog"],
-    "a": "Start with Founder log, week 1. Then pick a topic on the Blog page.",
-    "links": ["/blog"]
+    "q": "Where do I start?",
+    "keywords": [
+      "start",
+      "begin",
+      "first",
+      "read",
+      "blog",
+      "insights",
+      "articles"
+    ],
+    "a": "Start with the latest articles on Insights, then pick a pillar: Technology & AI, Business & Entrepreneurship, Productivity & Thinking, or Building & Experiments.",
+    "links": [
+      "/insights"
+    ]
   },
   {
     "id": "newsletter",
     "q": "How do I get the newsletter?",
-    "keywords": ["newsletter", "email", "subscribe", "inbox", "saturday"],
-    "a": "Sign up on the Newsletter page. One founder log every Saturday — what I tried, what happened, one thing to steal.",
-    "links": ["/newsletter"]
+    "keywords": [
+      "newsletter",
+      "email",
+      "subscribe",
+      "inbox"
+    ],
+    "a": "Sign up on the Newsletter page. One email every two weeks — original insights and what I learned from real experiments.",
+    "links": [
+      "/newsletter"
+    ]
   },
   {
     "id": "schedule",
     "q": "When do new videos come out?",
-    "keywords": ["when", "video", "youtube", "schedule", "new"],
-    "a": "A new founder log video comes out every Saturday on YouTube.",
-    "links": ["[YOUTUBE_URL]"]
+    "keywords": [
+      "when",
+      "video",
+      "youtube",
+      "schedule",
+      "new",
+      "how often"
+    ],
+    "a": "Short videos on YouTube and Instagram through the week, one new article every week, and a newsletter every two weeks.",
+    "links": [
+      "[YOUTUBE_URL]"
+    ]
   },
   {
     "id": "faceless",
     "q": "Why don't you show your face?",
-    "keywords": ["face", "faceless", "camera", "show"],
-    "a": "The focus is the build, not the person — screen, voice and story. No face. Just the build.",
-    "links": []
+    "keywords": [
+      "face",
+      "faceless",
+      "camera",
+      "show"
+    ],
+    "a": "It's a faceless brand, not an anonymous one: my real voice, my real screen and real experiments. The focus is the work.",
+    "links": [
+      "/about"
+    ]
   },
   {
     "id": "tools",
     "q": "What AI tools do you use?",
-    "keywords": ["tools", "ai", "claude", "stack", "software"],
-    "a": "Mainly Claude and Claude Code for building, plus automation tools. The AI tools & building posts go deeper.",
-    "links": ["/blog?topic=ai-tools"]
+    "keywords": [
+      "tools",
+      "ai",
+      "claude",
+      "stack",
+      "software"
+    ],
+    "a": "Mainly Claude and Claude Code for building, plus automation tools. The Technology & AI articles go deeper.",
+    "links": [
+      "/insights?topic=technology-ai"
+    ]
   },
   {
     "id": "contact",
     "q": "How can I contact you?",
-    "keywords": ["contact", "reach", "message", "email you", "dm"],
-    "a": "Open Connect on the Newsletter page, pick a reason, and send a note. I read every message and reply by email.",
-    "links": ["/newsletter#contact"]
+    "keywords": [
+      "contact",
+      "reach",
+      "message",
+      "email you",
+      "dm"
+    ],
+    "a": "Open the Contact page, pick a reason, and send a note. I read every message and reply by email.",
+    "links": [
+      "/contact"
+    ]
   },
   {
     "id": "collab",
     "q": "Can we collaborate or sponsor?",
-    "keywords": ["collab", "collaborate", "sponsor", "sponsorship", "brand deal", "partner"],
-    "a": "Yes. Open Connect, choose Collaboration or Sponsorship, and send the details.",
-    "links": ["/newsletter#contact"]
+    "keywords": [
+      "collab",
+      "collaborate",
+      "sponsor",
+      "sponsorship",
+      "brand deal",
+      "partner"
+    ],
+    "a": "Yes — partnerships and collaborations are welcome. Open Contact, choose Collaboration or Sponsorship, and send the details.",
+    "links": [
+      "/contact"
+    ]
   },
   {
     "id": "podcast",
     "q": "Can you come on my podcast?",
-    "keywords": ["podcast", "interview", "guest", "speak"],
-    "a": "Yes. Open Connect, choose Podcast or interview, and send the invite.",
-    "links": ["/newsletter#contact"]
+    "keywords": [
+      "podcast",
+      "interview",
+      "guest",
+      "speak"
+    ],
+    "a": "Yes. Open Contact, choose Podcast or interview, and send the invite.",
+    "links": [
+      "/contact"
+    ]
   },
   {
     "id": "idea",
     "q": "Can I suggest an experiment?",
-    "keywords": ["suggest", "idea", "experiment", "try next"],
-    "a": "Please do. The best ideas become a founder log episode. Use the idea box on the Products page.",
-    "links": ["/products"]
+    "keywords": [
+      "suggest",
+      "idea",
+      "experiment",
+      "try next"
+    ],
+    "a": "Please do. The best ideas become a Build Notes experiment. Use the idea box on the Projects page.",
+    "links": [
+      "/projects"
+    ]
   },
   {
     "id": "topics",
     "q": "What do you write about?",
-    "keywords": ["topics", "write", "about what", "content"],
-    "a": "Mostly startup lessons and AI tools & building, plus money & investing and life & mindset once a week.",
-    "links": ["/blog"]
+    "keywords": [
+      "topics",
+      "write",
+      "about what",
+      "content",
+      "pillars",
+      "series"
+    ],
+    "a": "Four pillars: Technology & AI, Business & Entrepreneurship, Productivity & Thinking, and Building & Experiments — in series like The AI Brief, Build Notes and Things I Learned.",
+    "links": [
+      "/insights"
+    ]
   },
   {
     "id": "steal",
     "q": "What does 'Steal this' mean?",
-    "keywords": ["steal this", "steal"],
+    "keywords": [
+      "steal this",
+      "steal"
+    ],
     "a": "Every post ends with something you can copy right away — a prompt, template or checklist.",
-    "links": ["/blog"]
+    "links": [
+      "/insights"
+    ]
   },
   {
     "id": "social",
     "q": "Where can I follow you?",
-    "keywords": ["follow", "instagram", "x", "twitter", "linkedin", "social"],
-    "a": "YouTube for the weekly founder log, Instagram for Reels, X for build notes and LinkedIn for founder lessons.",
-    "links": ["[YOUTUBE_URL]", "[INSTAGRAM_URL]", "[X_URL]", "[LINKEDIN_URL]"]
+    "keywords": [
+      "follow",
+      "instagram",
+      "x",
+      "twitter",
+      "linkedin",
+      "social"
+    ],
+    "a": "YouTube for shorts and long-form, Instagram for Reels and carousels, LinkedIn for business and tech insights, and X for opinions and observations.",
+    "links": [
+      "[YOUTUBE_URL]",
+      "[INSTAGRAM_URL]",
+      "[X_URL]",
+      "[LINKEDIN_URL]"
+    ]
   },
   {
     "id": "language",
     "q": "Is the content in Telugu?",
-    "keywords": ["telugu", "hindi", "language"],
-    "a": "Right now it's in English.",
+    "keywords": [
+      "telugu",
+      "hindi",
+      "language"
+    ],
+    "a": "Telugu and English.",
     "links": []
   }
 ]

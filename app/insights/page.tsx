@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { BlogEnd } from '@/components/blog/BlogEnd';
-import { BlogScreen, type BlogCard } from '@/components/blog/BlogScreen';
+import { BlogEnd } from '@/components/insights/BlogEnd';
+import { BlogScreen, type BlogCard } from '@/components/insights/BlogScreen';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getAllPosts } from '@/lib/posts';
 import { blogJsonLd, pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Blog — Founder log & lessons | The Chaithanya',
+  title: 'Insights | The Chaithanya',
   description:
-    'Startup lessons, AI tools and honest founder logs from India. Simple words, real numbers, no hype. New post every Saturday.',
-  path: '/blog',
+    'Articles on technology, AI, business and productivity — opinions, tutorials and lessons from real experiments. One new article every week.',
+  path: '/insights',
 });
 
 export default function BlogPage() {
@@ -21,6 +21,9 @@ export default function BlogPage() {
     summary: post.summary,
     videoUrl: post.videoUrl,
     featured: post.featured,
+    date: post.date,
+    cover: post.cover,
+    readingMinutes: post.readingMinutes,
   }));
 
   return (

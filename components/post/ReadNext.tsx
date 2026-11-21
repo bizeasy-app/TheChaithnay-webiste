@@ -13,7 +13,7 @@ export function ReadNext({ posts }: { posts: Pick<Post, 'slug' | 'title' | 'topi
         {posts.map((post) => (
           <Link
             key={post.slug}
-            href={`/blog/${post.slug}`}
+            href={`/insights/${post.slug}`}
             className="lift flex min-h-[200px] flex-col gap-3 rounded-3xl border border-line bg-white p-7 text-ink no-underline"
           >
             <span className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-muted">{post.topic}</span>

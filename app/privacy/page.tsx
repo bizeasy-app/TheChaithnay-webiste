@@ -30,17 +30,17 @@ export default function PrivacyPage() {
       <section className="flex flex-col gap-3">
         <h2 className="m-0 text-[28px] font-extrabold tracking-[-0.03em]">What I collect</h2>
         <p className="m-0 text-[18px] leading-[1.6] text-body">
-          When you join the founder log, I keep your email. If you add a first name, I keep that too.
+          When you subscribe to the newsletter, I keep your email. If you add a first name, I keep that too.
         </p>
         <p className="m-0 text-[18px] leading-[1.6] text-body">
-          When you send a message, or an idea from the products page, I keep your name, your email, the reason you wrote, and the message.
+          When you send a message, or an idea from the projects page, I keep your name, your email, the reason you wrote, and the message.
         </p>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="m-0 text-[28px] font-extrabold tracking-[-0.03em]">Why</h2>
         <p className="m-0 text-[18px] leading-[1.6] text-body">
-          The email is so I can send the founder log on Saturdays. The message is so I can reply.
+          The email is so I can send the newsletter every two weeks. The message is so I can reply.
         </p>
       </section>
 

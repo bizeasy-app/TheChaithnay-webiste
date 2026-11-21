@@ -10,12 +10,12 @@ export function BlogEnd() {
           id="blog-end-h"
           className="relative m-0 max-w-[820px] text-[clamp(44px,6.4vw,88px)] font-extrabold leading-[0.95] tracking-[-0.05em]"
         >
-          Never miss
+          Learn what I learn.
           <br />
-          a lesson. <span className="text-saffron">Steal it.</span>
+          <span className="text-saffron">Every two weeks.</span>
         </h2>
         <div className="relative max-w-[560px]">
-          <EmailForm source="blog" label="The founder log, every Saturday" />
+          <EmailForm source="blog" label="The newsletter, every two weeks" />
         </div>
       </div>
     </section>

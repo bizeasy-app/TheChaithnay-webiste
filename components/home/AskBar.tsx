@@ -43,7 +43,7 @@ export function AskBar({ className, style }: { className?: string; style?: React
           <button
             type="submit"
             aria-label="Ask"
-            className="press row inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-saffron text-ink transition duration-300 hover:scale-110"
+            className="press row inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-saffron text-coal transition duration-300 hover:scale-110"
           >
             <svg
               className="arrow"

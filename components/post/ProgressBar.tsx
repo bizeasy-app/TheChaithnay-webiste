@@ -40,7 +40,7 @@ export function ProgressBar() {
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={value}
-      className="sticky top-0 z-40 h-1 bg-[rgba(26,23,20,0.08)]"
+      className="sticky top-0 z-40 h-1 bg-[color-mix(in_srgb,var(--ink)_8%,transparent)]"
     >
       <div className="h-1 bg-saffron" style={{ width: `${value}%` }} />
     </div>

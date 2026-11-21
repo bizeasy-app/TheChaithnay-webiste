@@ -3,15 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useRef, useState } from 'react';
-import { AskMeTextButton } from '@/components/askme/AskMeTextButton';
-import { Logo } from '@/components/brand/Logo';
+import { BinduMark } from '@/components/brand/BinduMark';
+import { GridGlyph, HomeGlyph, MailGlyph, NotesGlyph, PersonGlyph } from '@/components/social/icons';
+import { MenuStack } from '@/components/layout/MenuStack';
+import { ThemeToggle } from '@/components/layout/ThemeToggle';
 
-const links = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/products', label: 'Products' },
+// James-style tool bar: round mark + outline icons, labels on hover.
+const tools = [
+  { href: '/', label: 'Home', Icon: HomeGlyph, exact: true, phone: false },
+  { href: '/insights', label: 'Insights', Icon: NotesGlyph, exact: false, phone: true },
+  { href: '/projects', label: 'Projects', Icon: GridGlyph, exact: false, phone: true },
+  { href: '/about', label: 'About', Icon: PersonGlyph, exact: false, phone: false },
+  { href: '/contact', label: 'Contact', Icon: MailGlyph, exact: false, phone: false },
 ];
 
-function isActive(href: string, pathname: string) {
+function isActive(href: string, pathname: string, exact = false) {
+  if (exact) return pathname === href;
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
@@ -19,9 +26,10 @@ function JoinLink() {
   return (
     <Link
       href="/newsletter"
-      className="focus-on-ink press inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-ink px-3.5 text-[15px] font-bold text-cloud transition duration-300 hover:scale-[1.03] sm:px-5"
+      data-magnetic="0.25"
+      className="focus-on-ink press inline-flex h-11 items-center whitespace-nowrap rounded-full bg-ink px-4 min-[861px]:h-12 text-[15px] font-bold text-cloud transition duration-300 hover:scale-[1.03] sm:px-5"
     >
-      Join the log
+      Subscribe
     </Link>
   );
 }
@@ -39,10 +47,19 @@ export function Nav() {
 
   useEffect(() => {
     if (!open) return;
+    // Not lenis.stop(): it clips <html>, which breaks the sticky header.
+    // The sheet is data-lenis-prevent with overscroll containment instead.
+    document.documentElement.classList.add('menu-open');
+    return () => document.documentElement.classList.remove('menu-open');
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
 
     const sheet = sheetRef.current;
-    const focusable = sheet?.querySelectorAll<HTMLElement>('a, button');
-    focusable?.[0]?.focus();
+    // Focus the sheet itself: screen readers land in the dialog, and no focus
+    // ring is painted on the first link after a mouse click.
+    sheet?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -72,50 +89,56 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-4 z-30 mx-auto mt-4 w-full max-w-page px-5 max-[480px]:px-4">
-      <div className="site-nav relative z-30 flex items-center justify-between gap-3 rounded-full border border-[rgba(26,23,20,0.08)] bg-[rgba(240,238,233,0.82)] py-2.5 pl-5 pr-2.5 backdrop-blur-[14px]">
-        <Logo />
-        <nav aria-label="Main" className="hidden items-center gap-1 min-[861px]:flex">
-          {links.map((link) => {
-            const active = isActive(link.href, pathname);
+    <header className="sticky top-[var(--corner-y)] z-30 mx-auto mt-[var(--corner-y)] w-full max-w-page px-5 max-[480px]:px-4">
+      <div className="site-nav relative z-30 flex items-center justify-between gap-3">
+        <nav aria-label="Main" className="nav-tools corner-pill corner corner-tl flex items-center gap-0.5 p-1.5 min-[481px]:gap-1"
+          style={{ ['--corner-i' as string]: 0 }}>
+          <Link
+            href="/"
+            aria-label="The Chaithanya — home"
+            data-magnetic="0.3"
+            className="nav-mark inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong min-[861px]:h-12 min-[861px]:w-12"
+          >
+            <BinduMark size={24} />
+          </Link>
+          {tools.map(({ href, label, Icon, exact, phone }) => {
+            const active = isActive(href, pathname, exact);
             return (
               <Link
-                key={link.href}
-                href={link.href}
+                key={href}
+                href={href}
+                aria-label={label}
                 aria-current={active ? 'page' : undefined}
-                className={`inline-flex min-h-11 items-center rounded-full px-3.5 text-[15px] no-underline ${
-                  active ? 'bg-white font-extrabold text-ink' : 'font-semibold text-body hover:text-muted'
-                }`}
+                className={`nav-tool relative inline-flex h-11 w-11 items-center justify-center rounded-full min-[861px]:h-12 min-[861px]:w-12${active ? ' is-active' : ''}${phone ? '' : ' max-[600px]:hidden'}`}
               >
-                {link.label}
+                <Icon />
+                <span className="nav-tip" aria-hidden="true">
+                  {label}
+                </span>
               </Link>
             );
           })}
-          <AskMeTextButton className="inline-flex min-h-11 items-center rounded-full px-3.5 text-[15px] font-semibold text-body hover:text-muted">
-            Ask me
-          </AskMeTextButton>
-          <JoinLink />
+          <ThemeToggle className="nav-tool max-[400px]:hidden min-[861px]:h-12 min-[861px]:w-12" />
         </nav>
-        <div className="flex items-center gap-1 min-[861px]:hidden">
+        <div className="corner-pill corner corner-tr flex items-center gap-1.5 p-1.5" style={{ ['--corner-i' as string]: 1 }}>
           <JoinLink />
           <button
             ref={buttonRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full"
+            data-magnetic="0.3"
+            className="menu-toggle inline-flex h-11 min-w-11 min-[861px]:h-12 items-center justify-center gap-2 rounded-full px-2 text-[15px] font-bold min-[861px]:px-3.5"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? 'Close menu' : 'Open menu'}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            ) : (
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              </svg>
-            )}
+            <span className="hidden min-[861px]:inline" aria-hidden="true">
+              {open ? 'Close' : 'Menu'}
+            </span>
+            <span className={`menu-icon${open ? ' is-open' : ''}`} aria-hidden="true">
+              <span />
+              <span />
+            </span>
           </button>
         </div>
       </div>
@@ -126,31 +149,11 @@ export function Nav() {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="fixed inset-x-0 bottom-0 top-0 z-20 bg-cloud px-4 pt-28 min-[861px]:hidden"
+          data-lenis-prevent
+          tabIndex={-1}
+          className="menu-sheet outline-none fixed inset-0 z-20 overflow-y-auto bg-cloud px-5 pt-28 max-[480px]:px-4"
         >
-          <nav aria-label="Mobile" className="flex flex-col">
-            {links.map((link) => {
-              const active = isActive(link.href, pathname);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? 'page' : undefined}
-                  className={`inline-flex min-h-11 items-center text-[17px] font-bold ${
-                    active ? 'text-ink' : 'text-body'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-            <AskMeTextButton
-              onOpen={() => setOpen(false)}
-              className="inline-flex min-h-11 items-center text-left text-[17px] font-bold text-body"
-            >
-              Ask me
-            </AskMeTextButton>
-          </nav>
+          <MenuStack pathname={pathname} onNavigate={() => setOpen(false)} />
         </div>
       ) : null}
     </header>

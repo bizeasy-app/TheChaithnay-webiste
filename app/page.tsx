@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { BlogList } from '@/components/home/BlogList';
 import { EndCTA } from '@/components/home/EndCTA';
 import { Hero } from '@/components/home/Hero';
+import { Pillars } from '@/components/home/Pillars';
 import { TopicMarquee } from '@/components/home/TopicMarquee';
 import { getLatestPosts } from '@/lib/posts';
 import { homeJsonLd } from '@/lib/seo';
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <TopicMarquee />
       <Bento />
+      <Pillars />
       <BlogList posts={posts} />
       <EndCTA />
     </>

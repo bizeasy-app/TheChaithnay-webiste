@@ -19,6 +19,11 @@ const config: Config = {
         'on-indigo': 'var(--on-indigo)',
         'on-indigo-soft': 'var(--on-indigo-soft)',
         placeholder: 'var(--placeholder)',
+        white: 'var(--white)',
+        'ink-3': 'var(--ink-3)',
+        'on-ink-soft': 'var(--on-ink-soft)',
+        paper: 'var(--paper)',
+        coal: 'var(--coal)',
       },
       fontFamily: {
         sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],

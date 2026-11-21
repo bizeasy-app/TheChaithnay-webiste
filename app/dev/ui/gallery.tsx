@@ -9,7 +9,7 @@ import { Marquee } from '@/components/ui/Marquee';
 import { Pill } from '@/components/ui/Pill';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 
-const topics = ['All', 'Startup lessons', 'AI tools & building', 'Money & investing', 'Life & mindset'];
+const topics = ['All', 'Technology & AI', 'Business & Entrepreneurship', 'Productivity & Thinking', 'Building & Experiments'];
 
 export function UiGallery() {
   const [topic, setTopic] = useState('All');
@@ -29,7 +29,7 @@ export function UiGallery() {
       <section className="flex flex-col gap-4">
         <h2 className="m-0 text-[26px] font-extrabold tracking-[-0.03em]">Button</h2>
         <div className="flex flex-wrap items-center gap-3">
-          <Button variant="ink">Join the log</Button>
+          <Button variant="ink">Subscribe</Button>
           <Button variant="saffron" size="lg">
             Subscribe
           </Button>
@@ -71,8 +71,8 @@ export function UiGallery() {
             <p className="m-0 mt-3 text-[26px] font-extrabold leading-[1.1] tracking-[-0.03em]">No face. Just the build.</p>
           </Card>
           <Card>
-            <SectionLabel blink>The weekly founder log</SectionLabel>
-            <p className="m-0 mt-3 text-[17px] leading-[1.55] text-body">One log. Every Saturday.</p>
+            <SectionLabel blink>The newsletter</SectionLabel>
+            <p className="m-0 mt-3 text-[17px] leading-[1.55] text-body">One email. Every two weeks.</p>
           </Card>
         </div>
       </section>
@@ -81,7 +81,7 @@ export function UiGallery() {
         <h2 className="m-0 text-[26px] font-extrabold tracking-[-0.03em]">Marquee</h2>
       </section>
       <Marquee
-        items={['Founder log', 'AI tools & building', 'Startup lessons', 'Money & mindset', 'Steal this', "Here's what actually happened"]}
+        items={['The AI Brief', 'Build Notes', 'Business Thinking', 'Better Systems', 'The Deep Dive', 'Things I Learned']}
       />
 
       <section className="flex flex-col gap-8">

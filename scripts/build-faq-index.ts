@@ -32,7 +32,7 @@ function main() {
         q: item.q,
         keywords: tokens(item.q),
         a: item.a,
-        links: [`/blog/${post.slug}`],
+        links: [`/insights/${post.slug}`],
       });
     });
 

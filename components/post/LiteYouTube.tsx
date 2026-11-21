@@ -28,7 +28,7 @@ export function LiteYouTube({ videoId, label = 'Watch the video version' }: { vi
     >
       <BinduMark
         size={480}
-        tone="cloud"
+        tone="paper"
         className="pointer-events-none absolute -bottom-[140px] -right-[100px] opacity-[0.22]"
       />
       <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-cloud text-ink">

@@ -5,12 +5,12 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { BinduMark } from '@/components/brand/BinduMark';
 import { FALLBACK, matchQuestion, type AnswerLink, type FaqIndex } from '@/components/askme/matcher';
 
-const GREETING = "Hi! Ask me who Chaithanya is, what he's building, or where to start on the blog.";
+const GREETING = 'Hi! Ask me about The Chaithanya, what I’m building, or where to start reading.';
 
 const CHIPS = [
   'Who is Chaithanya?',
   'What are you building?',
-  'Where do I start on the blog?',
+  'Where do I start?',
   'How do I get the newsletter?',
 ];
 
@@ -20,7 +20,7 @@ type Message = {
   links?: AnswerLink[];
 };
 
-const contactLink: AnswerLink = { href: '/newsletter#contact', title: 'Contact', topic: 'Send a message' };
+const contactLink: AnswerLink = { href: '/contact', title: 'Contact', topic: 'Send a message' };
 
 function LinkCard({ link, onClose }: { link: AnswerLink; onClose: () => void }) {
   const className = 'flex w-full flex-col gap-1 rounded-2xl border border-line bg-white px-3.5 py-3 text-ink no-underline';
@@ -202,13 +202,13 @@ export function AskMePanel({
             id={inputId}
             value={input}
             onChange={(event) => setInput(event.target.value)}
-            placeholder="Ask about Chaithanya, products, the blog…"
+            placeholder="Ask about projects, insights, the newsletter…"
             className="min-w-0 flex-1 rounded-full border-[1.5px] border-line-strong bg-cloud px-4 py-[13px] text-[15px] text-ink outline-none"
           />
           <button
             type="submit"
             aria-label="Send"
-            className="inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-saffron text-ink"
+            className="inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-saffron text-coal"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />

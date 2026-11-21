@@ -136,7 +136,7 @@ export function homeJsonLd() {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: `${site.url}/blog?q={search_term_string}`,
+            urlTemplate: `${site.url}/insights?q={search_term_string}`,
           },
           'query-input': 'required name=search_term_string',
         },
@@ -151,20 +151,20 @@ export function blogJsonLd(posts: Post[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Founder log & lessons',
-    url: absoluteUrl('/blog'),
-    description: 'Startup lessons, AI tools and honest founder logs from India. Simple words, real numbers, no hype. New post every Saturday.',
+    name: 'Insights',
+    url: absoluteUrl('/insights'),
+    description: 'Articles on technology, AI, business and productivity — opinions, tutorials and lessons from real experiments. One new article every week.',
     blogPost: posts.map((post) => ({
       '@type': 'BlogPosting',
       headline: post.title,
-      url: absoluteUrl(`/blog/${post.slug}`),
+      url: absoluteUrl(`/insights/${post.slug}`),
       datePublished: post.date,
     })),
   };
 }
 
 export function postJsonLd(post: Post) {
-  const pageUrl = absoluteUrl(`/blog/${post.slug}`);
+  const pageUrl = absoluteUrl(`/insights/${post.slug}`);
   const image = absoluteUrl(post.cover || `/og/${post.slug}.png`);
   const graph: Record<string, unknown>[] = [
     {
@@ -185,7 +185,7 @@ export function postJsonLd(post: Post) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: absoluteUrl('/blog') },
+        { '@type': 'ListItem', position: 2, name: 'Insights', item: absoluteUrl('/insights') },
         { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
       ],
     },
@@ -221,19 +221,20 @@ export function postJsonLd(post: Post) {
 export function newsletterJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage',
-        name: 'The weekly founder log newsletter',
-        url: absoluteUrl('/newsletter'),
-        description: 'One email every Saturday: what I tried, what happened, and one AI tool or system you can steal. Free.',
-      },
-      {
-        '@type': 'ContactPage',
-        name: 'Connect',
-        description: 'Write Chaithanya about collabs, sponsorships, podcasts, or experiment ideas.',
-        url: absoluteUrl('/newsletter#contact'),
-      },
-    ],
+    '@type': 'WebPage',
+    name: 'The Chaithanya newsletter',
+    url: absoluteUrl('/newsletter'),
+    description:
+      'One email every two weeks: original insights on technology, AI, business and productivity, plus what I learned from real experiments. Free.',
+  };
+}
+
+export function contactJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact The Chaithanya',
+    description: 'Professional inquiries, partnerships and collaborations.',
+    url: absoluteUrl('/contact'),
   };
 }

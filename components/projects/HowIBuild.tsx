@@ -1,4 +1,4 @@
-const steps = [
+export const steps = [
   {
     number: '01',
     title: 'Try it first',
@@ -7,7 +7,7 @@ const steps = [
   {
     number: '02',
     title: 'Build with AI',
-    text: 'Ship fast with tools like Claude Code and a small team.',
+    text: 'Ship fast with AI tools like Claude Code. Small, testable steps.',
   },
   {
     number: '03',
@@ -16,8 +16,8 @@ const steps = [
   },
   {
     number: '04',
-    title: 'Share the log',
-    text: 'Wins and failures, every Saturday. You steal what works.',
+    title: 'Share what I learned',
+    text: 'What worked and what failed, written up so you can use it.',
   },
 ];
 

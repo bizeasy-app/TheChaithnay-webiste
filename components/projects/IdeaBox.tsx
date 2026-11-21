@@ -29,7 +29,7 @@ export function IdeaBox() {
 
   return (
     <section aria-labelledby="idea-h" className="mx-auto w-full max-w-page px-5 pt-16 min-[861px]:pt-32 max-[480px]:px-4">
-      <div className="flex flex-wrap items-center justify-between gap-10 overflow-hidden rounded-[36px] bg-saffron px-6 py-12 text-ink min-[861px]:px-14 min-[861px]:py-16">
+      <div className="flex flex-wrap items-center justify-between gap-10 overflow-hidden rounded-[36px] bg-saffron px-6 py-12 text-coal min-[861px]:px-14 min-[861px]:py-16">
         <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-3.5">
           <h2 id="idea-h" className="m-0 text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[0.95] tracking-[-0.05em]">
             What should I
@@ -37,7 +37,7 @@ export function IdeaBox() {
             try next?
           </h2>
           <p className="m-0 text-[18px] font-semibold leading-[1.55]">
-            Suggest a tool, skill or experiment. The best ideas become a founder log episode.
+            Suggest a tool, skill or experiment. The best ideas become a Build Notes experiment.
           </p>
         </div>
         {status === 'success' ? (

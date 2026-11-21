@@ -7,11 +7,12 @@
         "who",
         "about",
         "chaithanya",
-        "founder"
+        "founder",
+        "creator"
       ],
-      "a": "Chaithanya is a solo Indian founder with a team of ten. He builds with AI tools like Claude Code and shares the whole journey — wins and failures — as a weekly founder log.",
+      "a": "I'm Chaithanya — The Chaithanya is my independent, creator-led media brand on technology, AI, entrepreneurship and productivity. Try new. Learn fast. Build big.",
       "links": [
-        "/"
+        "/about"
       ]
     },
     {
@@ -24,25 +25,27 @@
         "product",
         "projects"
       ],
-      "a": "Several products, built with AI, in public. They'll open on the Products page soon — join the founder log to see them first.",
+      "a": "Products, experiments and case studies, built in public. They'll open on the Projects page soon — subscribe to see them first.",
       "links": [
-        "/products",
+        "/projects",
         "/newsletter"
       ]
     },
     {
       "id": "start",
-      "q": "Where do I start on the blog?",
+      "q": "Where do I start?",
       "keywords": [
         "start",
         "begin",
         "first",
         "read",
-        "blog"
+        "blog",
+        "insights",
+        "articles"
       ],
-      "a": "Start with Founder log, week 1. Then pick a topic on the Blog page.",
+      "a": "Start with the latest articles on Insights, then pick a pillar: Technology & AI, Business & Entrepreneurship, Productivity & Thinking, or Building & Experiments.",
       "links": [
-        "/blog"
+        "/insights"
       ]
     },
     {
@@ -52,10 +55,9 @@
         "newsletter",
         "email",
         "subscribe",
-        "inbox",
-        "saturday"
+        "inbox"
       ],
-      "a": "Sign up on the Newsletter page. One founder log every Saturday — what I tried, what happened, one thing to steal.",
+      "a": "Sign up on the Newsletter page. One email every two weeks — original insights and what I learned from real experiments.",
       "links": [
         "/newsletter"
       ]
@@ -68,9 +70,10 @@
         "video",
         "youtube",
         "schedule",
-        "new"
+        "new",
+        "how often"
       ],
-      "a": "A new founder log video comes out every Saturday on YouTube.",
+      "a": "Short videos on YouTube and Instagram through the week, one new article every week, and a newsletter every two weeks.",
       "links": [
         "https://www.youtube.com/@TheChaithanya"
       ]
@@ -84,8 +87,10 @@
         "camera",
         "show"
       ],
-      "a": "The focus is the build, not the person — screen, voice and story. No face. Just the build.",
-      "links": []
+      "a": "It's a faceless brand, not an anonymous one: my real voice, my real screen and real experiments. The focus is the work.",
+      "links": [
+        "/about"
+      ]
     },
     {
       "id": "tools",
@@ -97,9 +102,9 @@
         "stack",
         "software"
       ],
-      "a": "Mainly Claude and Claude Code for building, plus automation tools. The AI tools & building posts go deeper.",
+      "a": "Mainly Claude and Claude Code for building, plus automation tools. The Technology & AI articles go deeper.",
       "links": [
-        "/blog?topic=ai-tools"
+        "/insights?topic=technology-ai"
       ]
     },
     {
@@ -112,9 +117,9 @@
         "email you",
         "dm"
       ],
-      "a": "Open Connect on the Newsletter page, pick a reason, and send a note. I read every message and reply by email.",
+      "a": "Open the Contact page, pick a reason, and send a note. I read every message and reply by email.",
       "links": [
-        "/newsletter#contact"
+        "/contact"
       ]
     },
     {
@@ -128,9 +133,9 @@
         "brand deal",
         "partner"
       ],
-      "a": "Yes. Open Connect, choose Collaboration or Sponsorship, and send the details.",
+      "a": "Yes — partnerships and collaborations are welcome. Open Contact, choose Collaboration or Sponsorship, and send the details.",
       "links": [
-        "/newsletter#contact"
+        "/contact"
       ]
     },
     {
@@ -142,9 +147,9 @@
         "guest",
         "speak"
       ],
-      "a": "Yes. Open Connect, choose Podcast or interview, and send the invite.",
+      "a": "Yes. Open Contact, choose Podcast or interview, and send the invite.",
       "links": [
-        "/newsletter#contact"
+        "/contact"
       ]
     },
     {
@@ -156,9 +161,9 @@
         "experiment",
         "try next"
       ],
-      "a": "Please do. The best ideas become a founder log episode. Use the idea box on the Products page.",
+      "a": "Please do. The best ideas become a Build Notes experiment. Use the idea box on the Projects page.",
       "links": [
-        "/products"
+        "/projects"
       ]
     },
     {
@@ -168,11 +173,13 @@
         "topics",
         "write",
         "about what",
-        "content"
+        "content",
+        "pillars",
+        "series"
       ],
-      "a": "Mostly startup lessons and AI tools & building, plus money & investing and life & mindset once a week.",
+      "a": "Four pillars: Technology & AI, Business & Entrepreneurship, Productivity & Thinking, and Building & Experiments — in series like The AI Brief, Build Notes and Things I Learned.",
       "links": [
-        "/blog"
+        "/insights"
       ]
     },
     {
@@ -184,7 +191,7 @@
       ],
       "a": "Every post ends with something you can copy right away — a prompt, template or checklist.",
       "links": [
-        "/blog"
+        "/insights"
       ]
     },
     {
@@ -198,7 +205,7 @@
         "linkedin",
         "social"
       ],
-      "a": "YouTube for the weekly founder log, Instagram for Reels, X for build notes and LinkedIn for founder lessons.",
+      "a": "YouTube for shorts and long-form, Instagram for Reels and carousels, LinkedIn for business and tech insights, and X for opinions and observations.",
       "links": [
         "https://www.youtube.com/@TheChaithanya",
         "https://www.instagram.com/thechaithanya_7",
@@ -214,7 +221,7 @@
         "hindi",
         "language"
       ],
-      "a": "Right now it's in English.",
+      "a": "Telugu and English.",
       "links": []
     }
   ],

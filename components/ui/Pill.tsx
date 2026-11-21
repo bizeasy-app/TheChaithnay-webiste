@@ -8,7 +8,7 @@ type PillProps = {
 
 const tones = {
   ink: 'bg-ink text-cloud',
-  saffron: 'bg-saffron text-ink',
+  saffron: 'bg-saffron text-coal',
   white: 'border border-line bg-white text-ink',
 };
 

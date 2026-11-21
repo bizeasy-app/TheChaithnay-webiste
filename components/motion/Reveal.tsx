@@ -7,11 +7,14 @@ export function Reveal({
   as: Tag = 'div',
   className,
   delay = 0,
+  speed,
   children,
 }: {
-  as?: 'div' | 'section' | 'article' | 'span';
+  as?: 'div' | 'section' | 'article' | 'span' | 'li';
   className?: string;
   delay?: number;
+  /** Desktop scroll parallax; see ScrollFX. */
+  speed?: number;
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -47,7 +50,7 @@ export function Reveal({
   }, [delay]);
 
   return (
-    <Tag ref={ref as never} className={cn('fx-reveal', className)}>
+    <Tag ref={ref as never} className={cn('fx-reveal', className)} data-speed={speed || undefined}>
       {children}
     </Tag>
   );

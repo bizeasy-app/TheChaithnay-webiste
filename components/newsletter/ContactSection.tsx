@@ -58,9 +58,9 @@ export function ContactSection() {
     <section id="contact" aria-labelledby="ct-h" className="mx-auto w-full max-w-page scroll-mt-28 px-5 pt-16 min-[861px]:pt-28 max-[480px]:px-4">
       <Reveal className="overflow-hidden rounded-[36px] border border-line bg-white shadow-[0_24px_60px_rgba(26,23,20,0.06)]">
         <div className="grid min-[961px]:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-          <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-ink px-6 py-10 text-cloud [background-image:radial-gradient(rgba(240,238,233,0.08)_1.5px,transparent_1.5px)] [background-size:22px_22px] min-[861px]:px-10 min-[861px]:py-12">
+          <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-indigo px-6 py-10 text-paper [background-image:radial-gradient(rgba(240,238,233,0.08)_1.5px,transparent_1.5px)] [background-size:22px_22px] min-[861px]:px-10 min-[861px]:py-12">
             <div className="relative flex flex-col gap-5">
-              <p className="m-0 flex items-center gap-2.5 text-[13px] font-extrabold uppercase tracking-[0.14em] text-muted-dark">
+              <p className="m-0 flex items-center gap-2.5 text-[13px] font-extrabold uppercase tracking-[0.14em] text-on-indigo">
                 <span className="inline-block h-2 w-2 rounded-full bg-saffron" aria-hidden="true" />
                 Connect
               </p>
@@ -73,13 +73,13 @@ export function ContactSection() {
                 I read every note.
               </h2>
               <p className="m-0 max-w-[36ch] text-[17px] leading-[1.6] text-on-indigo-soft">
-                Collab, sponsor, podcast, or an idea for the next experiment. Pick a reason, say what you need, and send it.
+                Professional inquiries, partnerships, collaborations — or an idea for the next experiment. Pick a reason and say what you need.
               </p>
             </div>
 
             <div className="relative flex flex-col gap-6">
               <div className="flex flex-col gap-3">
-                <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-muted-dark">What’s it about?</p>
+                <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-on-indigo">What’s it about?</p>
                 <div className="flex flex-wrap gap-2">
                   {contactReasons.map((item) => {
                     const active = reason === item;
@@ -90,8 +90,8 @@ export function ContactSection() {
                         onClick={() => setReason(item)}
                         className={`press inline-flex min-h-11 items-center rounded-full px-3.5 text-[13px] font-bold transition duration-300 ${
                           active
-                            ? 'bg-saffron text-ink'
-                            : 'border border-[rgba(240,238,233,0.18)] text-on-indigo hover:border-cloud hover:text-cloud'
+                            ? 'bg-saffron text-coal'
+                            : 'border border-[color-mix(in_srgb,var(--paper)_22%,transparent)] text-on-indigo hover:border-paper hover:text-paper'
                         }`}
                       >
                         {item}
@@ -102,28 +102,28 @@ export function ContactSection() {
               </div>
 
               <div className="flex flex-col gap-3">
-                <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-muted-dark">Email</p>
+                <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-on-indigo">Email</p>
                 {email ? (
                   <a
                     href={`mailto:${email}`}
-                    className="group press inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-cloud px-5 text-[15px] font-extrabold text-ink no-underline transition duration-300 hover:-translate-y-0.5"
+                    className="group press inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-paper px-5 text-[15px] font-extrabold text-coal no-underline transition duration-300 hover:-translate-y-0.5"
                   >
                     {email}
                     <span
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ink text-cloud transition duration-300 group-hover:translate-x-0.5"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-coal text-paper transition duration-300 group-hover:translate-x-0.5"
                       aria-hidden="true"
                     >
                       →
                     </span>
                   </a>
                 ) : (
-                  <p className="m-0 text-[16px] font-semibold text-muted-dark">{site.contactEmail}</p>
+                  <p className="m-0 text-[16px] font-semibold text-on-indigo">{site.contactEmail}</p>
                 )}
               </div>
 
               {socials.length ? (
                 <div className="flex flex-col gap-3">
-                  <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-muted-dark">Follow the build</p>
+                  <p className="m-0 text-[12px] font-extrabold uppercase tracking-[0.12em] text-on-indigo">Follow the build</p>
                   <nav aria-label="Social" className="flex flex-wrap gap-x-4 gap-y-2">
                     {socials.map((item) => (
                       <a
@@ -131,7 +131,7 @@ export function ContactSection() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="draw inline-flex min-h-11 items-center text-[14px] font-bold text-on-indigo hover:text-cloud"
+                        className="draw inline-flex min-h-11 items-center text-[14px] font-bold text-on-indigo hover:text-paper"
                       >
                         {item.label}
                       </a>
@@ -148,7 +148,7 @@ export function ContactSection() {
                 role="status"
                 className="flex h-full min-h-[320px] flex-col items-start justify-center gap-4 rounded-[28px] bg-cloud px-6 py-8"
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-saffron text-[22px] font-extrabold text-ink">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-saffron text-[22px] font-extrabold text-coal">
                   ✓
                 </span>
                 <p className="m-0 text-[28px] font-extrabold leading-tight tracking-[-0.03em]">{SUCCESS}</p>

@@ -113,7 +113,7 @@ function BlockView({
           </pre>
           <CopyButton
             text={block.plainText ?? ''}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-saffron px-5 text-[15px] font-extrabold text-ink"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-saffron px-5 text-[15px] font-extrabold text-coal"
           />
         </div>
       );
@@ -275,7 +275,7 @@ export function NotionBlocks({
   const body = closing ? blocks.slice(0, -1) : blocks;
 
   return (
-    <div className="flex flex-col gap-7 text-[20px] font-medium leading-[1.75] text-[#2E2924]">
+    <div className="flex flex-col gap-7 text-[20px] font-medium leading-[1.75] text-body">
       {renderBlocks(body, stealIds, true, imageAlt)}
     </div>
   );

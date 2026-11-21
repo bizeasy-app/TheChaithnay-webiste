@@ -2,15 +2,9 @@
 
 import { useState } from 'react';
 import { Marquee } from '@/components/ui/Marquee';
+import { series } from '@/lib/brand';
 
-const topics = [
-  'Founder log',
-  'AI tools & building',
-  'Startup lessons',
-  'Money & mindset',
-  'Steal this',
-  "Here's what actually happened",
-];
+const topics = series.map((item) => item.name);
 
 export function TopicMarquee() {
   const [paused, setPaused] = useState(false);
@@ -25,7 +19,7 @@ export function TopicMarquee() {
           onClick={() => setPaused((value) => !value)}
           aria-pressed={paused}
         >
-          {paused ? 'Play topics' : 'Pause topics'}
+          {paused ? 'Play series' : 'Pause series'}
         </button>
       </div>
     </div>

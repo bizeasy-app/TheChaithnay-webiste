@@ -20,13 +20,13 @@ export function StealThis({ block, id }: { block: PostBlock; id: string }) {
       <h2 id={`${id}-h`} className="m-0 text-[36px] font-extrabold leading-[1.1] tracking-[-0.035em]">
         Steal this<span className="text-saffron">.</span>
       </h2>
-      {showIntro ? <p className="m-0 text-[18px] leading-[1.6] text-[#D9D2C9]">{intro}</p> : null}
+      {showIntro ? <p className="m-0 text-[18px] leading-[1.6] text-on-ink-soft">{intro}</p> : null}
       <div className="whitespace-pre-wrap rounded-2xl border border-body bg-ink-input p-[22px] font-mono text-[15px] leading-[1.7] text-cloud">
         {payload}
       </div>
       <CopyButton
         text={payload}
-        className="inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-saffron px-5 text-[15px] font-extrabold text-ink"
+        className="inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-saffron px-5 text-[15px] font-extrabold text-coal"
       />
     </section>
   );

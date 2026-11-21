@@ -28,12 +28,12 @@ export function FeaturedPost({ post }: { post: FeaturedCard }) {
   return (
     <div className="grid gap-4 min-[861px]:grid-cols-4 min-[861px]:[grid-auto-rows:minmax(240px,auto)]">
       <Link
-        href={`/blog/${post.slug}`}
-        className="lift relative flex min-h-[460px] flex-col justify-between overflow-hidden rounded-[28px] bg-indigo p-7 text-cloud no-underline [background-image:radial-gradient(rgba(240,238,233,0.12)_1.5px,transparent_1.5px)] [background-size:22px_22px] min-[861px]:col-span-3 min-[861px]:row-span-2 min-[861px]:p-10"
+        href={`/insights/${post.slug}`}
+        className="lift relative flex min-h-[460px] flex-col justify-between overflow-hidden rounded-[28px] bg-indigo p-7 text-paper no-underline [background-image:radial-gradient(rgba(240,238,233,0.12)_1.5px,transparent_1.5px)] [background-size:22px_22px] min-[861px]:col-span-3 min-[861px]:row-span-2 min-[861px]:p-10"
       >
-        <BinduMark size={420} tone="cloud" className="pointer-events-none absolute -right-[90px] -top-[60px] opacity-[0.22]" />
+        <BinduMark size={420} tone="paper" className="pointer-events-none absolute -right-[90px] -top-[60px] opacity-[0.22]" />
         <span className="relative flex flex-wrap gap-2 self-start">
-          <span className="rounded-full bg-ink px-3 py-1.5 text-[13px] font-extrabold tracking-[0.04em]">FEATURED</span>
+          <span className="rounded-full bg-coal px-3 py-1.5 text-[13px] font-extrabold tracking-[0.04em]">FEATURED</span>
           {post.videoUrl ? (
             <span className="rounded-full border border-[rgba(240,238,233,0.4)] px-3 py-1.5 text-[13px] font-bold">With video</span>
           ) : null}
@@ -44,14 +44,14 @@ export function FeaturedPost({ post }: { post: FeaturedCard }) {
             <Title title={post.title} highlight={post.titleHighlight} />
           </span>
           <span className="text-[17px] leading-[1.55] text-on-indigo-soft">{post.summary}</span>
-          <span className="text-[16px] font-extrabold">Read the log →</span>
+          <span className="text-[16px] font-extrabold">Read the article →</span>
         </span>
       </Link>
       <Link
         href="/newsletter"
-        className="lift flex min-h-[240px] flex-col justify-between rounded-[28px] bg-saffron p-7 text-ink no-underline"
+        className="lift flex min-h-[240px] flex-col justify-between rounded-[28px] bg-saffron p-7 text-coal no-underline"
       >
-        <span className="text-[13px] font-extrabold tracking-[0.08em]">EVERY SATURDAY</span>
+        <span className="text-[13px] font-extrabold tracking-[0.08em]">EVERY TWO WEEKS</span>
         <span className="text-[30px] font-extrabold leading-[1.05] tracking-[-0.035em]">Get new posts in your inbox.</span>
         <span className="text-[16px] font-extrabold">Subscribe →</span>
       </Link>

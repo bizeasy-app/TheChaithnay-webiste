@@ -38,21 +38,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return pageMetadata({
       title: 'Post | The Chaithanya',
       description: site.description,
-      path: '/blog',
+      path: '/insights',
       index: false,
     });
   }
   return pageMetadata({
     title: brandedTitle(post.seoTitle || post.title),
     description: metaDescription(post.summary),
-    path: `/blog/${post.slug}`,
+    path: `/insights/${post.slug}`,
     ogImage: `/og/${post.slug}.png`,
     type: 'article',
     publishedTime: post.date,
     modifiedTime: post.lastEdited || post.date,
     section: post.topic,
     tags: post.tags,
-    markdown: `/blog/${post.slug}.md`,
+    markdown: `/insights/${post.slug}.md`,
   });
 }
 
@@ -69,7 +69,7 @@ export default async function PostPage({ params }: Props) {
   const meta = [
     formatPostDate(post.date),
     `${post.readingMinutes} min read`,
-    post.week !== null ? `Founder log, week ${post.week}` : '',
+    post.week !== null ? `Week ${post.week}` : '',
   ]
     .filter(Boolean)
     .join(' · ');
@@ -81,8 +81,8 @@ export default async function PostPage({ params }: Props) {
       <article id="post">
         <header className="mx-auto flex w-full max-w-page flex-col gap-7 px-5 pt-16 min-[861px]:pt-[72px] max-[480px]:px-4">
           <nav aria-label="Breadcrumb" className="flex gap-2 text-sm font-bold text-muted">
-            <Link href="/blog" className="text-muted">
-              Blog
+            <Link href="/insights" className="text-muted">
+              Insights
             </Link>
             <span aria-hidden="true">/</span>
             <span>{post.topic}</span>
@@ -155,7 +155,7 @@ export default async function PostPage({ params }: Props) {
       </article>
 
       <section aria-labelledby="sub-h" className="mx-auto w-full max-w-page px-5 pt-16 min-[861px]:pt-28 max-[480px]:px-4">
-        <div className="flex flex-wrap items-end justify-between gap-8 rounded-[36px] bg-saffron px-6 py-12 text-ink min-[861px]:px-14 min-[861px]:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-8 rounded-[36px] bg-saffron px-6 py-12 text-coal min-[861px]:px-14 min-[861px]:py-16">
           <h2 id="sub-h" className="m-0 flex-[1_1_420px] text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[0.95] tracking-[-0.05em]">
             Liked this?
             <br />

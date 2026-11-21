@@ -1,12 +1,13 @@
 # The Chaithanya
 
-> Founder log from Chaithanya, a solo Indian founder building with AI. Startup lessons, AI tools & building, money & investing, and life & mindset — shared honestly, wins and failures, every Saturday. Tagline: Try new. Learn fast. Build big.
+> An independent, creator-led media brand on technology, AI, entrepreneurship and productivity, by Chaithanya. Tagline: Try new. Learn fast. Build big.
 
-The Chaithanya is a faceless personal brand: screen, voice and story — no face on camera. Content is in English, for young Indians (18–30) who want to build something. Products are being built in public and are not public yet.
+A builder's perspective on technology, business and growth: original ideas, real experiments and practical lessons. The brand is faceless — real voice, real screen, real work — and publishes in Telugu and English. One article every week; a newsletter every two weeks.
 
 ## Start here
-- [Home](https://thechaithanya.com/): who Chaithanya is and what the founder log is
-- [Blog](https://thechaithanya.com/blog): all posts, filterable by topic
-- [Newsletter](https://thechaithanya.com/newsletter): the weekly founder log by email, every Saturday
+- [Home](https://thechaithanya.com/): what The Chaithanya is
+- [About](https://thechaithanya.com/about): mission, philosophy and what the brand is and isn't
+- [Insights](https://thechaithanya.com/insights): all articles, filterable by pillar
+- [Newsletter](https://thechaithanya.com/newsletter): original insights by email, every two weeks
 
 

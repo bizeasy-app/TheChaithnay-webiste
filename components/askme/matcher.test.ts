@@ -23,7 +23,7 @@ describe('matchQuestion', () => {
   it('returns the fallback for nonsense', () => {
     const answer = matchQuestion('purple elephant orchestra', index);
     assert.equal(answer.text, FALLBACK);
-    assert.deepEqual(answer.links, [{ href: '/newsletter#contact', title: 'Contact', topic: 'Send a message' }]);
+    assert.deepEqual(answer.links, [{ href: '/contact', title: 'Contact', topic: 'Send a message' }]);
   });
 
   it('suggests a post when no answer fits', () => {
@@ -42,7 +42,7 @@ describe('matchQuestion', () => {
     };
     const answer = matchQuestion('ledger margins', withPost);
     assert.equal(answer.text, 'These posts should help:');
-    assert.equal(answer.links[0]?.href, '/blog/ledger-margins');
+    assert.equal(answer.links[0]?.href, '/insights/ledger-margins');
   });
 
   it('puts the open post first', () => {
@@ -68,6 +68,6 @@ describe('matchQuestion', () => {
       ],
     };
     const answer = matchQuestion('ledger margins', withPosts, 'more-ledger');
-    assert.equal(answer.links[0]?.href, '/blog/more-ledger');
+    assert.equal(answer.links[0]?.href, '/insights/more-ledger');
   });
 });

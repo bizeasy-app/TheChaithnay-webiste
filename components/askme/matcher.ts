@@ -35,18 +35,21 @@ export const FALLBACK =
   "I don't have an answer for that yet. Try a suggestion below, or send Chaithanya a message on the Contact page.";
 
 const CONTACT: AnswerLink = {
-  href: '/newsletter#contact',
+  href: '/contact',
   title: 'Contact',
   topic: 'Send a message',
 };
 
 const PAGES: Record<string, { title: string; topic: string }> = {
   '/': { title: 'Home', topic: 'The Chaithanya' },
-  '/products': { title: 'Products & experiments', topic: 'The lab' },
-  '/newsletter': { title: 'The weekly founder log', topic: 'Newsletter' },
-  '/newsletter#contact': { title: 'Contact', topic: 'Newsletter' },
-  '/blog': { title: 'Founder log & lessons', topic: 'Blog' },
-  '/blog?topic=ai-tools': { title: 'AI tools & building', topic: 'Blog' },
+  '/about': { title: 'About The Chaithanya', topic: 'About' },
+  '/projects': { title: 'Projects & experiments', topic: 'Projects' },
+  '/newsletter': { title: 'The newsletter', topic: 'Every two weeks' },
+  '/contact': { title: 'Contact', topic: 'Send a message' },
+  '/insights': { title: 'Insights', topic: 'Articles' },
+  '/insights?topic=technology-ai': { title: 'Technology & AI', topic: 'Insights' },
+  '/resources': { title: 'Resources', topic: 'Coming soon' },
+  '/community': { title: 'Community', topic: 'Coming soon' },
 };
 
 const STOP = new Set(['the', 'a', 'is', 'are', 'how', 'do', 'i', 'you', 'what', 'to', 'of', 'in', 'for', 'my', 'me']);
@@ -97,7 +100,7 @@ function usableHref(href: string) {
 function cardFor(href: string, index: FaqIndex): AnswerLink | null {
   const safe = usableHref(href);
   if (!safe) return null;
-  const post = index.posts.find((item) => safe === `/blog/${item.slug}` || safe.startsWith(`/blog/${item.slug}#`));
+  const post = index.posts.find((item) => safe === `/insights/${item.slug}` || safe.startsWith(`/insights/${item.slug}#`));
   if (post) return { href: safe, title: post.title, topic: post.topic };
   const page = PAGES[safe];
   if (page) return { href: safe, title: page.title, topic: page.topic };
@@ -127,7 +130,7 @@ function scoreFaq(normalised: string, expandedText: string, questionTokens: stri
     if (faqTokens.has(token)) score += 1;
   }
   if (hasPhrase(normalised, normalise(faq.q))) score += 2;
-  if (scope && faq.links.some((link) => link === `/blog/${scope}` || link.startsWith(`/blog/${scope}#`))) score += 4;
+  if (scope && faq.links.some((link) => link === `/insights/${scope}` || link.startsWith(`/insights/${scope}#`))) score += 4;
   return score;
 }
 
@@ -173,7 +176,7 @@ export function matchQuestion(question: string, index: FaqIndex, scope?: string)
     return {
       text: 'These posts should help:',
       links: ranked.map((item) => ({
-        href: `/blog/${item.post.slug}`,
+        href: `/insights/${item.post.slug}`,
         title: item.post.title,
         topic: item.post.topic,
       })),

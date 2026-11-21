@@ -1,0 +1,6 @@
+# Old section names, kept working after the brand update.
+/blog /insights 301
+/blog/ /insights/ 301
+/blog/* /insights/:splat 301
+/products /projects 301
+/products/ /projects/ 301
