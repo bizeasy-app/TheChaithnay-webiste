@@ -1,7 +1,8 @@
 import { createPage, emailExists, inboxPage, subscriberPage, type NotionEnv } from './notion';
+import { notionWebhook, type PublishEnv } from './publish';
 import { isHoneypot, readContact, readSubscribe } from './validate';
 
-export type Env = NotionEnv;
+export type Env = NotionEnv & PublishEnv;
 
 const SITE = 'https://thechaithanya.com';
 const HOUR = 60 * 60 * 1000;
@@ -52,6 +53,9 @@ export async function handle(
   options: { now?: number; store?: Map<string, number[]>; fetch?: typeof fetch } = {},
 ) {
   const url = new URL(request.url);
+  // Server-to-server from Notion: no browser Origin, its own signature check.
+  if (url.pathname === '/api/notion-webhook') return notionWebhook(request, env, options.fetch ?? fetch);
+
   const origin = allowedOrigin(request);
   if (request.headers.has('Origin') && !origin) return json({ ok: false, error: 'Origin not allowed.' }, 403, null);
 

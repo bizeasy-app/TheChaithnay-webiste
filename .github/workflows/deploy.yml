@@ -1,11 +1,23 @@
 name: Deploy
 
 on:
+  # Safety net and scheduled-date posts; Notion edits arrive instantly via
+  # /api/notion-webhook, which starts this workflow with source=notion.
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
+    inputs:
+      source:
+        description: 'Who started this run (notion skips the deploy when nothing published changed)'
+        required: false
+        default: manual
   push:
     branches: [main]
+
+# A burst of Notion edits queues at most one extra run instead of racing deploys.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -50,18 +62,23 @@ jobs:
           restore-keys: |
             deployed-content-${{ runner.os }}-
 
-      - name: Skip unchanged cron
+      - name: Skip unchanged content
         id: gate
+        env:
+          EVENT: ${{ github.event_name }}
+          SOURCE: ${{ inputs.source }}
         run: |
           last=$(cat .deploy/last/hash 2>/dev/null || echo none)
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$last" = "${{ steps.content.outputs.hash }}" ]; then
+          auto=false
+          if [ "$EVENT" = "schedule" ] || [ "$SOURCE" = "notion" ]; then auto=true; fi
+          if [ "$auto" = "true" ] && [ "$last" = "${{ steps.content.outputs.hash }}" ]; then
             echo "deploy=false" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Lighthouse
-        if: steps.gate.outputs.deploy == 'true' && github.event_name != 'schedule'
+        if: steps.gate.outputs.deploy == 'true' && github.event_name == 'push'
         continue-on-error: true
         uses: treosh/lighthouse-ci-action@v12
         with:

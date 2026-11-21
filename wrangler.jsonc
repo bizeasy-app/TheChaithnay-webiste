@@ -16,6 +16,7 @@
   ],
   "vars": {
     "NOTION_SUBSCRIBERS_DATA_SOURCE_ID": "41d579a1-9613-81bd-9ff1-000b3b8aff33",
-    "NOTION_INBOX_DATA_SOURCE_ID": "41d579a1-9613-81a8-b2ae-000b2e13b7a1"
+    "NOTION_INBOX_DATA_SOURCE_ID": "41d579a1-9613-81a8-b2ae-000b2e13b7a1",
+    "GITHUB_REPO": "bizeasy-app/TheChaithnay-webiste"
   }
 }
